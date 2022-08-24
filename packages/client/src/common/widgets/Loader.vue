@@ -33,7 +33,7 @@ const getSize = computed(() => ({
   height: 50px;
   &_circle {
     position: absolute;
-    border: 4px solid rgb(var(--text_100));
+    border: 4px solid rgb(var(--contrast_400));
     opacity: 1;
     border-radius: 50%;
     animation: pulse 2s ease-out infinite;
@@ -53,8 +53,8 @@ const getSize = computed(() => ({
     width: 80%;
     height: 80%;
     border-radius: 50%;
-    border: 2px solid rgb(var(--text_100));
-    border-color: rgb(var(--text_100)) transparent rgb(var(--text_100))
+    border: 2px solid rgb(var(--contrast_400));
+    border-color: rgb(var(--contrast_400)) transparent rgb(var(--contrast_400))
       transparent;
     animation: ring 1.2s linear infinite;
   }

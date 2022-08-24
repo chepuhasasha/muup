@@ -17,4 +17,8 @@ export interface ITheme {
   font_100: string;
   font_200: string;
   font_300: string;
+  // STATUSES
+  ok_100: string;
+  warn_100: string;
+  error_100: string;
 }

@@ -16,6 +16,9 @@ const base: ITheme = {
   font_100: "Transgender Grotesk",
   font_200: "Montserrat",
   font_300: "IBM Plex Mono",
+  ok_100: "160, 232, 83",
+  warn_100: "253, 194, 44",
+  error_100: "250, 89,68",
 };
 
 export default base;

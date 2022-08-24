@@ -22,6 +22,10 @@
   .component
     h1 Button
     .component_body 
+      Button(load) Default
+      Button(load mode='link') Link
+      Button(load mode='light') Light
+      Button(load mode='blur') Blur
       Button(size='l') Default
       Button(size='l' mode='link') Link
       Button(size='l' mode='light') Light

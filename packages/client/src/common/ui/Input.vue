@@ -50,7 +50,7 @@ const getClasses = computed(() => ({
   display: flex
   align-items: center
   padding: 20px
-  gap: 10px
+  gap: 20px
   width: 100%
   background: rgb(var(--contrast_100))
   border: 1px dashed rgb(var(--contrast_100))
@@ -78,14 +78,13 @@ const getClasses = computed(() => ({
     border-color: rgb(var(--contrast_300),)
 
   &_error
-    border-color: var(--error_100)
+    border-color: rgb(var(--error_100))
     animation: shake 0.5s
     &_text
       position: absolute
       font-size: 12px
       top: -10px
-      background: var(--error_100)
-      border-radius: 6px
-      padding: 2px 6px
-      box-shadow: 0 0px 20px -5px var(--error_200)
+      background: rgb(var(--error_100))
+      border-radius: 4px
+      padding: 4px 8px
 </style>

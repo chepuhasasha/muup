@@ -1,5 +1,5 @@
 <template lang="pug">
-svg(viewBox='0 0 14 14' :width='size' :height='size' fill='none' @click='$emit("click")' :style='getStyle')
+svg(viewBox='0 0 14 14' :width='size' :height='size' fill='none' :style='getStyle')
   path(v-for='path in getPaths' :d='path' :stroke='color' stroke-linecap="round" stroke-linejoin="round" :stroke-width='stroke')
 </template>
 <script lang="ts" setup>

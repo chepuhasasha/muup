@@ -49,7 +49,7 @@ const mode = computed(() => {
   &:hover, &:focus
     background: none
     border: 2px solid rgb(var(--contrast_400))
-    color: rgb(var(--contrast_500))
+    color: rgb(var(--contrast_400))
   &_link
     border: none
     background: none
@@ -63,12 +63,12 @@ const mode = computed(() => {
   &_light
     background: rgb(var(--contrast_100))
     border: 2px solid rgb(var(--contrast_100))
-    color: rgb(var(--contrast_500))
+    color: rgb(var(--contrast_400))
   &_blur
     backdrop-filter: blur(5px)
     background: rgb(var(--contrast_100), 0.2)
     border: 2px solid rgb(var(--contrast_100))
-    color: rgb(var(--contrast_500))
+    color: rgb(var(--contrast_400))
 
   &_l
     padding: 20px 30px

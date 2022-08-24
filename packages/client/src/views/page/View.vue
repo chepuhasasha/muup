@@ -1,35 +1,34 @@
 <template lang="pug">
 .page(:style='getPageStyle')
-  Block(tag='article')
-    h1 {{ pageName }} (╯°益°)╯
+  pre {{ pageConfig }}
+  pre(v-for='(block, i) in pageConfig?.blocks' :style='block.style') {{ block }}
 </template>
 <script lang="ts" setup>
 import type { PageConfig } from "@/types/pageConfig";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import config from "./testpage.json";
 
 const route = useRoute();
 const pageName = ref<string | string[]>();
+const pageConfig = ref<PageConfig | null>(null);
 
 onMounted(() => {
+  console.log(config);
+  pageConfig.value = config;
   pageName.value = route.params.name;
-  document.title = route.params.name.toString();
-  route.meta.title = "dkdkdkd";
-});
-
-const pageConfig = ref<PageConfig>({
-  path: "new",
-  title: "New Page",
-  grid: { rows: 20, cols: 20, gap: 1 },
-  blocks: [],
+  document.title = config.title.toString();
 });
 
 const getPageStyle = computed(() => {
-  return {
-    gridTemplateRows: `repeat(${pageConfig.value.grid.rows}, auto)`,
-    gridTemplateColumns: `repeat(${pageConfig.value.grid.cols}, auto)`,
-    gap: `${pageConfig.value.grid.gap}px`,
-  };
+  if (pageConfig.value) {
+    return {
+      gridTemplateRows: `repeat(${pageConfig.value.grid.rows}, auto)`,
+      gridTemplateColumns: `repeat(${pageConfig.value.grid.cols}, auto)`,
+      gap: `${pageConfig.value.grid.gap}px`,
+    };
+  }
+  return {};
 });
 </script>
 <style lang="sass">

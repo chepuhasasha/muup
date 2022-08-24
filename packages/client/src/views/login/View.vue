@@ -3,11 +3,14 @@
   .login_block
     .login_header log in
     Input(v-model='user.username' placeholder='Username')
-    Input(v-model='user.password' placeholder='Password ')
+    Input(v-model='user.password' placeholder='Password' :type='!passwordIsVisible ? "password" : null')
+      Icon(icon='se' @click='passwordIsVisible = !passwordIsVisible' pointer)
     Button login
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
+
+const passwordIsVisible = ref<boolean>(false);
 
 const user = ref<{ username: string | null; password: string | null }>({
   username: null,

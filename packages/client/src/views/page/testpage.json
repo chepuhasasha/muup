@@ -1,0 +1,35 @@
+{
+  "path": "test",
+  "title": "Test Page",
+  "tag": "section",
+  "grid": {
+    "rows": 20,
+    "cols": 20,
+    "gap": 5
+  },
+  "blocks": [
+    {
+      "desktop": [
+        1,
+        1,
+        5,
+        3
+      ],
+      "tablet": [],
+      "mobile": [],
+      "style": {
+        "background": "red",
+        "padding": "100px"
+      },
+      "widgets": [
+        {
+          "type": "Header",
+          "props": {
+            "text": "Test Header",
+            "size": 1
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -11,7 +11,7 @@ export interface IThemeState {
 
 export const theme: Module<IThemeState, State> = {
   state: {
-    name: "dark",
+    name: "base",
     theme: null,
   },
   getters: {

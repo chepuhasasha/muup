@@ -12,14 +12,14 @@ const resize = () => {
 };
 
 onMounted(() => {
-  store.dispatch("setTheme", "dark");
+  store.dispatch("setTheme", "base");
   store.dispatch("setScreenMode", window.innerWidth);
   window.addEventListener("resize", resize);
 });
 </script>
 <style lang="sass">
 #app
-  background: rgb(var(--bg_100))
+  background: rgb(var(--contrast_300))
   width: 100vw
   height: 100vh
 </style>

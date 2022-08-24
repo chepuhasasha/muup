@@ -1,7 +1,7 @@
 import { ITheme } from "./theme.interface";
-import dark from "./dark";
+import base from "./base";
 
-export type ThemeName = "dark";
+export type ThemeName = "base";
 export const themes: { [key in ThemeName]: ITheme } = {
-  dark,
+  base,
 };

@@ -1,7 +1,7 @@
 <template lang="pug">
 .page(:style='getPageStyle')
   Block(tag='article')
-    h1 {{ pageName }}
+    h1 {{ pageName }} (╯°益°)╯
 </template>
 <script lang="ts" setup>
 import type { PageConfig } from "@/types/pageConfig";

@@ -32,6 +32,7 @@ const getPageStyle = computed(() => {
 </script>
 <style lang="sass">
 .admin
+  padding: 100px
   background: rgb(var(--contrast_200))
   display: grid
   width: 100%

@@ -28,12 +28,14 @@ const user = ref<{ username: string | null; password: string | null }>({
   overflow: hidden
   &_header
     font-size: 40px
+    width: 100%
     // font-family: var(--font_300)
   &_block
     display: flex
     width: 400px
     flex-direction: column
     gap: 20px
+    align-items: end
   *
     // color: rgb(var(--contrast_200))
 </style>

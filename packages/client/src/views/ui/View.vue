@@ -1,7 +1,7 @@
 <template lang="pug">
 .wrapper
   .component
-    h1 ICONS
+    h1 Icons
     .component_body 
       Icon
       Icon(icon='rect')
@@ -20,21 +20,22 @@
       Icon(icon='dashed_rect')
       Icon(icon='cross')
   .component
-    h1 BUTTON
+    h1 Button
     .component_body 
-      Button(size='m' :modes='["clear"]') Clear
-      Button(size='m') Simple
-      //- Button(size='l') Share
-      Button(size='m' :modes='["active"]') Active
-      Button(size='m' :modes='["active"]' load) Load
-      Button(size='m' :modes='["active"]') Slot
-        Icon(icon='cross' :size='10' pointer)
-        //- Input(icon='search' v-model='input' placeholder='Search')
-      Button(size='m' :modes='["icon", "active"]' icon='pointer')
-      Button(size='m' :modes='["icon", "clear"]' icon='hand')
-      Button(size='s') small
+      Button(size='l') Default
+      Button(size='l' mode='link') Link
+      Button(size='l' mode='light') Light
+      Button(size='l' mode='blur') Blur
+      Button Default
+      Button(mode='link') Link
+      Button(mode='light') Light
+      Button(mode='blur') Blur
+      Button(size='s') Default
+      Button(size='s' mode='link') Link
+      Button(size='s' mode='light') Light
+      Button(size='s' mode='blur') Blur
   .component
-    h1 INPUT 
+    h1 Input 
     .component_body
       Input(icon='search' v-model='input' placeholder='Search')
       Input(v-model='input' :error='input ? "(╯°益°)╯" : null' placeholder='Error')
@@ -59,6 +60,7 @@ const input = ref<null | string>(null);
   flex-direction: column
   gap: 10px
   padding: 40px
+  background: rgb(var(--contrast_200))
 .component
   display: flex
   flex-direction: column

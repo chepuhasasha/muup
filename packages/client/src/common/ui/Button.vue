@@ -15,77 +15,71 @@ const props = defineProps<{
   load?: boolean;
   active?: boolean;
   size: "s" | "m" | "l";
-  modes: ("active" | "clear")[];
+  mode: string;
 }>();
 
 const mode = computed(() => {
   const result: Record<string, boolean> = {
     [`button_${props.size}`]: true,
   };
-  props.modes?.forEach((mode) => {
-    if (mode) result[`button_${mode}`] = true;
-  });
+  if (props.mode) result[`button_${props.mode}`] = true;
+
   return result;
 });
 </script>
 
 <style lang="sass">
 .button
+  transition: all 0.2s linear
   display: flex
   align-items: center
   width: max-content
   height: max-content
   outline: none
   cursor: pointer
-  background: rgb(var(--bg_300))
-  border: 2px solid rgb(var(--bg_300))
-  color: rgb(var(--text_200))
+  font-family: var(--font_200)
   font-weight: 500
-  path
-    stroke: rgb(var(--text_200))
+  font-size: 16px
+  background: rgb(var(--contrast_400))
+  border: 2px solid rgb(var(--contrast_400))
+  padding: 10px 14px
+  gap: 14px
+  border-radius: 4px
+  color: rgb(var(--contrast_200))
   &:hover, &:focus
-    background: rgba(var(--primary_100), 0.3)
-    color: rgb(var(--primary_100))
-    border-color: rgba(0,0,0,0)
-    path
-      stroke: rgb(var(--primary_100))
-  &_active
-    color: rgb(var(--primary_100))
-    background: rgba(var(--primary_100), 0.3)
-    border-color: rgba(0,0,0,0)
-    path
-      stroke: rgb(var(--primary_100))
-    &:hover, &:focus
-      background: rgb(var(--primary_100))
-      color: rgb(var(--text_100))
-      path
-        stroke: rgb(var(--text_100))
-
-  &_clear
     background: none
-    border-color: rgba(0,0,0,0)
-    color: rgb(var(--primary_100))
-  &_icon
-    width: 32px
-    height: 32px
-    padding: 0px !important
-    justify-content: center
-  &_s
-    padding: 4px
-    gap: 4px
-    border-radius: 4px
-    font-size: 10px
-    line-height: 8px
-  &_m
-    padding: 8px 12px
-    gap: 8px
-    border-radius: 6px
-    font-size: 12px
-    line-height: 10px
+    border: 2px solid rgb(var(--contrast_400))
+    color: rgb(var(--contrast_500))
+  &_link
+    border: none
+    background: none
+    border-bottom: 2px solid rgb(var(--contrast_400))
+    border-radius: 0
+    color: rgb(var(--contrast_400))
+    &:hover, &:focus
+      border: none
+      border-bottom: 2px solid rgb(var(--accent_100))
+      color: rgb(var(--accent_100))
+  &_light
+    background: rgb(var(--contrast_100))
+    border: 2px solid rgb(var(--contrast_100))
+    color: rgb(var(--contrast_500))
+  &_blur
+    backdrop-filter: blur(5px)
+    background: rgb(var(--contrast_100), 0.2)
+    border: 2px solid rgb(var(--contrast_100))
+    color: rgb(var(--contrast_500))
+
   &_l
-    padding: 40px
-    gap: 10px
-    border-radius: 40px
-    font-size: 16px
-    line-height: 14px
+    padding: 20px 30px
+    gap: 30px
+  &_s
+    padding: 4px 8px
+    gap: 6px
+    font-size: 12px
+    font-weight: 500
+    border-width: 1px
+    border-radius: 2px
+    &:hover, &:focus
+      border-width: 1px
 </style>

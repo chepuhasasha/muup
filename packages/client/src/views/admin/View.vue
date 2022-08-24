@@ -1,11 +1,19 @@
 <template lang="pug">
-.page(:style='getPageStyle')
-  Block(tag='article')
-    h1 Admin
+.admin
+  h1 ADMIN DASHBOARD
 </template>
 <script lang="ts" setup>
-import { computed, ref } from "vue";
+import { computed, onMounted, ref } from "vue";
 import { PageConfig } from "@/types/pageConfig";
+import { key } from "@/store";
+import { useRouter } from "vue-router";
+import { useStore } from "vuex";
+
+const STORE = useStore(key);
+const router = useRouter();
+onMounted(() => {
+  if (!STORE.getters.USER) router.push({ name: "login" });
+});
 
 const pageConfig = ref<PageConfig>({
   path: "new",
@@ -23,7 +31,8 @@ const getPageStyle = computed(() => {
 });
 </script>
 <style lang="sass">
-.page
+.admin
+  background: rgb(var(--contrast_200))
   display: grid
   width: 100%
   max-width: 100%

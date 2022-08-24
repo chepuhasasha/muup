@@ -1,11 +1,21 @@
 <template lang="pug">
 .page(:style='getPageStyle')
   Block(tag='article')
-    h1 Admin
+    h1 {{ pageName }}
 </template>
 <script lang="ts" setup>
-import { computed, ref } from "vue";
-import { PageConfig } from "@/types/pageConfig";
+import type { PageConfig } from "@/types/pageConfig";
+import { computed, onMounted, ref } from "vue";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const pageName = ref<string | string[]>();
+
+onMounted(() => {
+  pageName.value = route.params.name;
+  document.title = route.params.name.toString();
+  route.meta.title = "dkdkdkd";
+});
 
 const pageConfig = ref<PageConfig>({
   path: "new",

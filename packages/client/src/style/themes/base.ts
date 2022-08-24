@@ -15,7 +15,7 @@ const base: ITheme = {
   accent_700: "248, 201, 209",
   font_100: "Transgender Grotesk",
   font_200: "Montserrat",
-  font_300: 'IBM Plex Mono"',
+  font_300: "IBM Plex Mono",
 };
 
 export default base;

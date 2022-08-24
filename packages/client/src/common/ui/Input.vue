@@ -49,13 +49,12 @@ const getClasses = computed(() => ({
   position: relative
   display: flex
   align-items: center
-  padding: 10px
+  padding: 20px
   gap: 10px
   width: 100%
-
-  background: rgb(var(--bg_300))
-  border: 2px solid rgb(var(--bg_300))
-  border-radius: 10px
+  background: rgb(var(--contrast_100))
+  border: 1px dashed rgb(var(--contrast_100))
+  border-radius: 4px
 
   input
     padding: 0
@@ -63,20 +62,20 @@ const getClasses = computed(() => ({
     outline: none
     border: none
     width: 100%
-    color: rgb(var(--text_100))
+    color: rgb(var(--contrast_500))
     font-size: 12px
-    font-weight: 300
+    font-weight: 500
+    font-family: var(--font_200)
     white-space: normal
     letter-spacing: 0.5px
     &::placeholder
+      color: rgb(var(--contrast_500), 0.5)
       font-size: 12px
       font-weight: 500
-      color: rgb(var(--text_200))
 
 
   &:hover, &_focus
-    background: rgb(var(--primary_100), 0.3)
-    border-color: rgb(var(--primary_100))
+    border-color: rgb(var(--contrast_300),)
 
   &_error
     border-color: var(--error_100)

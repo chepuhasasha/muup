@@ -1,5 +1,5 @@
 import { Module } from "vuex";
-import { ITheme } from "@/style/themes/theme.interface";
+import { ITheme } from "@/types/theme";
 import { ThemeName } from "@/style/themes";
 import { themes } from "@/style/themes/index";
 import { State } from "../index";

@@ -1,4 +1,4 @@
-import { ITheme } from "./theme.interface";
+import { ITheme } from "@/types/theme";
 //  TODO: Разобраться с переменными попутно переписатаь common компонеты
 const base: ITheme = {
   contrast_100: "255, 255, 255",

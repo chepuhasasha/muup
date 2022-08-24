@@ -1,0 +1,32 @@
+<template lang="pug">
+.page(:style='getPageStyle')
+  Block(tag='article')
+    h1 Admin
+</template>
+<script lang="ts" setup>
+import { computed, ref } from "vue";
+import { PageConfig } from "@/types/pageConfig";
+
+const pageConfig = ref<PageConfig>({
+  path: "new",
+  title: "New Page",
+  grid: { rows: 20, cols: 20, gap: 1 },
+  blocks: [],
+});
+
+const getPageStyle = computed(() => {
+  return {
+    gridTemplateRows: `repeat(${pageConfig.value.grid.rows}, auto)`,
+    gridTemplateColumns: `repeat(${pageConfig.value.grid.cols}, auto)`,
+    gap: `${pageConfig.value.grid.gap}px`,
+  };
+});
+</script>
+<style lang="sass">
+.page
+  display: grid
+  width: 100%
+  max-width: 100%
+  min-height: 100%
+  overflow: hidden
+</style>

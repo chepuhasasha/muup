@@ -1,0 +1,24 @@
+{
+  "name": "qtb",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "npm run dev --workspace=client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chepuhasasha/qtb.git"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Sergey Batukov",
+    "email": "sashachepuha@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chepuhasasha/qtb/issues"
+  },
+  "homepage": "https://github.com/chepuhasasha/qtb#readme",
+  "workspaces": [
+    "packages\\client"
+  ]
+}

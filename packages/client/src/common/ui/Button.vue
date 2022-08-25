@@ -41,33 +41,33 @@ const mode = computed(() => {
   font-weight: 500
   font-size: 16px
   background: rgb(var(--contrast_400))
-  border: 2px solid rgb(var(--contrast_400))
+  border: 1px solid rgb(var(--contrast_400))
   padding: 10px 14px
   gap: 14px
   border-radius: 4px
   color: rgb(var(--contrast_200))
   &:hover, &:focus
     background: rgb(var(--contrast_200))
-    border: 2px solid rgb(var(--contrast_400))
+    border: 1px solid rgb(var(--contrast_400))
     color: rgb(var(--contrast_400))
   &_link
     border: none
     background: none
-    border-bottom: 2px solid rgb(var(--contrast_400))
+    border-bottom: 1px solid rgb(var(--contrast_400))
     border-radius: 0
     color: rgb(var(--contrast_400))
     &:hover, &:focus
       border: none
-      border-bottom: 2px solid rgb(var(--accent_100))
+      border-bottom: 1px solid rgb(var(--accent_100))
       color: rgb(var(--accent_100))
   &_light
     background: rgb(var(--contrast_100))
-    border: 2px solid rgb(var(--contrast_100))
+    border: 1px solid rgb(var(--contrast_100))
     color: rgb(var(--contrast_400))
   &_blur
     backdrop-filter: blur(5px)
     background: rgb(var(--contrast_100), 0.2)
-    border: 2px solid rgb(var(--contrast_100))
+    border: 1px solid rgb(var(--contrast_100))
     color: rgb(var(--contrast_400))
 
   &_l

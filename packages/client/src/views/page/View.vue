@@ -3,69 +3,66 @@
   .editor_block(v-if='edit')
     .editor_item
       span Title
-      Input(size='s' v-model='PAGE.title')
+      Input(size='s' v-model='PAGE.title' nobtn)
     .editor_item
       span URL
-      Input(size='s' v-model='PAGE.path')
+      Input(size='s' v-model='PAGE.path' nobtn)
     .editor_row
       .editor_item
         span cols
-        Input(size='s' v-model='GRID.cols' type='number')
+        Input(size='s' v-model='GRID.cols' type='number' nobtn)
       .editor_item
         span rows
-        Input(size='s' v-model='GRID.rows' type='number')
+        Input(size='s' v-model='GRID.rows' type='number' nobtn)
+      .editor_item
+        span gap
+        Input(size='s' v-model='GRID.gap' type='number' nobtn)
     .editor_selected(v-if='SELECTED')
-      h3 BLOCK
       span DECKTOP
       .editor_row
         .editor_item
           span x
-          Input(size='s' v-model='SELECTED.decktop.x' type='number')
+          Input(size='s' v-model='SELECTED.decktop.x' type='number' nobtn)
         .editor_item
           span y
-          Input(size='s' v-model='SELECTED.decktop.y' type='number')
-      .editor_row
+          Input(size='s' v-model='SELECTED.decktop.y' type='number' nobtn)
         .editor_item
-          span width
-          Input(size='s' v-model='SELECTED.decktop.w' type='number')
+          span w
+          Input(size='s' v-model='SELECTED.decktop.w' type='number' nobtn)
         .editor_item
-          span height
-          Input(size='s' v-model='SELECTED.decktop.h' type='number')
-
+          span h
+          Input(size='s' v-model='SELECTED.decktop.h' type='number' nobtn)
       span TABLET
       .editor_row
         .editor_item
           span x
-          Input(size='s' v-model='SELECTED.tablet.x' type='number')
+          Input(size='s' v-model='SELECTED.tablet.x' type='number' nobtn)
         .editor_item
           span y
-          Input(size='s' v-model='SELECTED.tablet.y' type='number')
-      .editor_row
+          Input(size='s' v-model='SELECTED.tablet.y' type='number' nobtn)
         .editor_item
-          span width
-          Input(size='s' v-model='SELECTED.tablet.w' type='number')
+          span w
+          Input(size='s' v-model='SELECTED.tablet.w' type='number' nobtn)
         .editor_item
-          span height
-          Input(size='s' v-model='SELECTED.tablet.h' type='number')
-
+          span h
+          Input(size='s' v-model='SELECTED.tablet.h' type='number' nobtn)
       span MOBILE
       .editor_row
         .editor_item
           span x
-          Input(size='s' v-model='SELECTED.mobile.x' type='number')
+          Input(size='s' v-model='SELECTED.mobile.x' type='number' nobtn)
         .editor_item
           span y
-          Input(size='s' v-model='SELECTED.mobile.y' type='number')
-      .editor_row
+          Input(size='s' v-model='SELECTED.mobile.y' type='number' nobtn)
         .editor_item
-          span width
-          Input(size='s' v-model='SELECTED.mobile.w' type='number')
+          span w
+          Input(size='s' v-model='SELECTED.mobile.w' type='number' nobtn)
         .editor_item
-          span height
-          Input(size='s' v-model='SELECTED.mobile.h' type='number')
-    
+          span h
+          Input(size='s' v-model='SELECTED.mobile.h' type='number' nobtn)
+
     Button SAVE
-  Button(@click='edit=!edit' mode='light') tools
+  Icon(pointer @click='edit=!edit'  icon='left')
 .page(:style='getPageStyle')
   Block(v-for='(block, i) in BLOCKS' :config='block') {{i}}
 </template>
@@ -78,12 +75,37 @@ import config from "./testpage.json";
 import Block from "@/common/wrappers/Block.vue";
 import { UserStoreHelper } from "@/store/modules/user";
 import Button from "@/common/ui/Button.vue";
+import { ScreenStoreHelper } from "../../store/modules/screen";
+import Icon from "@/common/widgets/Icon.vue";
 
 const route = useRoute();
 const edit = ref<boolean>(true);
 const pageName = ref<string | string[]>();
 const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED } = PageStoreHelper();
+const { SCREEN } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
+document.addEventListener("keydown", (e) => {
+  if (SELECTED.value) {
+    console.log(e);
+    switch (e.code) {
+      case "ArrowUp":
+        SELECTED.value[SCREEN.value].y -= 1;
+        break;
+      case "ArrowDown":
+        SELECTED.value[SCREEN.value].y += 1;
+        break;
+      case "ArrowLeft":
+        SELECTED.value[SCREEN.value].x -= 1;
+        break;
+      case "ArrowRight":
+        SELECTED.value[SCREEN.value].x += 1;
+        break;
+
+      default:
+        break;
+    }
+  }
+});
 
 onMounted(() => {
   SET(config);
@@ -113,26 +135,29 @@ const getPageStyle = computed(() => {
 .editor
   position: absolute
   display: flex
-  gap: 10px
+  // gap: 10px
   height: 100vh
+  backdrop-filter: blur(10px)
+  background: rgb(var(--contrast_100), 0.6)
+  border-right: 1px solid rgb(var(--contrast_100))
+  gap: 20px
+  padding: 20px
   &_block
     width: 300px
     overflow-y: auto
     display: flex
     flex-direction: column
     gap: 10px
-    padding: 20px
-    background: rgb(var(--contrast_200))
-    border-right: 1px solid rgb(var(--contrast_300))
+
   &_item
     display: flex
     // flex-direction: column
-    gap: 10px
+    gap: 4px
     align-items: center
     padding-bottom: 10px
   &_row
     display: flex
-    gap: 20px
+    gap: 4px
   &_selected
     display: flex
     flex-direction: column

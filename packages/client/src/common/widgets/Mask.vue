@@ -53,7 +53,7 @@ watch(IMAGES, () => {
 
 const drawMask = (delta: number) => {
   props.shapes.forEach((s) => {
-    mask.beginFill(0x234321);
+    mask.beginFill(0xffffff, 0.1);
     if (s.type === "rect") mask.drawRect(s.x, s.y, s.w, s.h);
     if (s.type === "ellipse") mask.drawEllipse(s.x, s.y, s.w, s.h);
   });

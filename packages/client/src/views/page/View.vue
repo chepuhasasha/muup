@@ -1,31 +1,30 @@
 <template lang="pug">
 .page(:style='getPageStyle')
-  pre {{ pageConfig }}
-  pre(v-for='(block, i) in pageConfig?.blocks' :style='block.style') {{ block }}
+  Block(v-for='(block, i) in BLOCKS' :style='block.style' :widgets="block.widgets") {{i}}
 </template>
 <script lang="ts" setup>
 import type { PageConfig } from "@/types/pageConfig";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
+import { PageStoreHelper } from "@/store/modules/page";
 import config from "./testpage.json";
+import Block from "@/common/wrappers/Block.vue";
 
 const route = useRoute();
 const pageName = ref<string | string[]>();
-const pageConfig = ref<PageConfig | null>(null);
+const { SET, BLOCKS, GRID } = PageStoreHelper();
 
 onMounted(() => {
-  console.log(config);
-  pageConfig.value = config;
+  SET(config);
   pageName.value = route.params.name;
-  document.title = config.title.toString();
 });
 
 const getPageStyle = computed(() => {
-  if (pageConfig.value) {
+  if (GRID.value) {
     return {
-      gridTemplateRows: `repeat(${pageConfig.value.grid.rows}, auto)`,
-      gridTemplateColumns: `repeat(${pageConfig.value.grid.cols}, auto)`,
-      gap: `${pageConfig.value.grid.gap}px`,
+      gridTemplateRows: `repeat(${GRID.value.rows}, auto)`,
+      gridTemplateColumns: `repeat(${GRID.value.cols}, auto)`,
+      gap: `${GRID.value.gap}px`,
     };
   }
   return {};

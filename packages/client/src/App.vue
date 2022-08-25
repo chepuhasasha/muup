@@ -1,5 +1,4 @@
 <template lang="pug">
-h1 {{ SCREEN }}
 router-view
 </template>
 <script lang="ts" setup>
@@ -8,7 +7,7 @@ import { useStore } from "vuex";
 import { key } from "./store";
 import { ScreenStoreHelper } from "./store/modules/screen";
 
-const { SET, SCREEN } = ScreenStoreHelper();
+const { SET } = ScreenStoreHelper();
 
 const store = useStore(key);
 const resize = () => {
@@ -26,4 +25,5 @@ onMounted(() => {
   background: rgb(var(--contrast_300))
   width: 100vw
   height: 100vh
+  overflow-y: scroll
 </style>

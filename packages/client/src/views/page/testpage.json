@@ -10,24 +10,56 @@
   "blocks": [
     {
       "tag": "div",
-      "decktop": [
-        1,
-        1,
-        5,
-        3
-      ],
-      "tablet": [
-        1,
-        1,
-        2,
-        1
-      ],
-      "mobile": [
-        1,
-        1,
-        2,
-        2
-      ],
+      "decktop": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
+      "tablet": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
+      "mobile": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
+      "style": {
+        "background": "rgb(var(--contrast_200))"
+      },
+      "widgets": [
+        {
+          "type": "Mask",
+          "props": {
+            "img": "test"
+          }
+        }
+      ]
+    },
+    {
+      "tag": "div",
+      "decktop": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
+      "tablet": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
+      "mobile": {
+        "x": 1,
+        "y": 1,
+        "w": 10,
+        "h": 10
+      },
       "style": {
         "background": "rgb(var(--contrast_200))"
       },

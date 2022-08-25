@@ -41,6 +41,7 @@
   .component
     h1 Input 
     .component_body
+      Input(size='s' v-model='input' placeholder='size S')
       Input(icon='search' v-model='input' placeholder='Search')
       Input(v-model='input' :error='input ? "(╯°益°)╯" : null' placeholder='Error')
       Input(v-model='input' :load='input ? true : false' placeholder='Load')

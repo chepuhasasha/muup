@@ -47,7 +47,7 @@ const mode = computed(() => {
   border-radius: 4px
   color: rgb(var(--contrast_200))
   &:hover, &:focus
-    background: none
+    background: rgb(var(--contrast_200))
     border: 2px solid rgb(var(--contrast_400))
     color: rgb(var(--contrast_400))
   &_link

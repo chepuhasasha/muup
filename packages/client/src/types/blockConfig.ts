@@ -2,9 +2,9 @@ import { WidgetConfig } from "./widgetConfig";
 
 export interface BlockConfig {
   tag: string;
-  decktop: [number, number, number, number];
-  tablet: [number, number, number, number];
-  mobile: [number, number, number, number];
+  decktop: { x: number; y: number; w: number; h: number };
+  tablet: { x: number; y: number; w: number; h: number };
+  mobile: { x: number; y: number; w: number; h: number };
   style: {
     background: string;
     padding: string;

@@ -32,6 +32,7 @@ const props = defineProps({
   nobtn: { type: Boolean as PropType<boolean>, default: false },
   load: { type: Boolean as PropType<boolean>, default: false },
   error: { type: String as PropType<string>, default: "" },
+  size: { type: String as PropType<"s" | "m" | "l">, default: "m" },
 });
 const emit = defineEmits(["focus", "update:modelValue"]);
 const focus = ref(false);
@@ -40,6 +41,7 @@ const onfocus = (val: boolean) => {
   emit("focus", val);
 };
 const getClasses = computed(() => ({
+  [`input_${props.size}`]: true,
   input_focus: focus.value,
   input_error: props.error,
 }));
@@ -87,4 +89,10 @@ const getClasses = computed(() => ({
       background: rgb(var(--error_100))
       border-radius: 4px
       padding: 4px 8px
+  &_s
+    padding: 6px
+    gap: 6px
+    // input
+    //   font-size: 12px
+    // TODO: Доделать размеры
 </style>

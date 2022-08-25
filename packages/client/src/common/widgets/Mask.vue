@@ -21,7 +21,7 @@ const props = defineProps({
   shapes: {
     type: Array as PropType<IMaskShape[]>,
     default: () => [
-      { type: "rect", x: 0, y: 0, w: 300, h: 300 },
+      { type: "rect", x: -100, y: -100, w: 300, h: 300 },
       // { type: "ellipse", x: 40, y: 200, w: 80, h: 300 },
     ],
   },
@@ -57,6 +57,7 @@ const drawMask = (delta: number) => {
     if (s.type === "rect") mask.drawRect(s.x, s.y, s.w, s.h);
     if (s.type === "ellipse") mask.drawEllipse(s.x, s.y, s.w, s.h);
   });
+  mask.rotation += delta * 0.01;
 };
 
 app.ticker.add((delta) => {

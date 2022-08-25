@@ -1,6 +1,7 @@
 <template lang="pug">
-.editor(v-if='USER && PAGE')
+.editor(v-if='USER && PAGE' @keydown.stop)
   .editor_block(v-if='edit')
+    h3 Settings
     .editor_item
       span Title
       Input(size='s' v-model='PAGE.title' nobtn)
@@ -61,8 +62,8 @@
           span h
           Input(size='s' v-model='SELECTED.mobile.h' type='number' nobtn)
 
-    Button SAVE
-  Icon(pointer @click='edit=!edit'  icon='left')
+    Button(@click='save') SAVE
+  Icon(pointer @click='edit=!edit'  icon='cross' size='12px')
 .page(:style='getPageStyle')
   Block(v-for='(block, i) in BLOCKS' :config='block') {{i}}
 </template>
@@ -81,12 +82,12 @@ import Icon from "@/common/widgets/Icon.vue";
 const route = useRoute();
 const edit = ref<boolean>(true);
 const pageName = ref<string | string[]>();
-const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED } = PageStoreHelper();
+const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
+  PageStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
 document.addEventListener("keydown", (e) => {
   if (SELECTED.value) {
-    console.log(e);
     switch (e.code) {
       case "ArrowUp":
         SELECTED.value[SCREEN.value].y -= 1;
@@ -100,12 +101,43 @@ document.addEventListener("keydown", (e) => {
       case "ArrowRight":
         SELECTED.value[SCREEN.value].x += 1;
         break;
+      case "Delete":
+        // eslint-disable-next-line no-case-declarations
+        const i = BLOCKS.value.indexOf(SELECTED.value);
+        BLOCKS.value.splice(i, 1);
+        SET_SELECTED_BLOCK(null);
+        break;
+      case "KeyC":
+        if (e.ctrlKey) {
+          window.navigator.clipboard.writeText(JSON.stringify(SELECTED.value));
+        }
+        break;
+      case "KeyV":
+        if (e.ctrlKey) {
+          window.navigator.clipboard.readText().then((res) => {
+            const copy = JSON.parse(res);
+            SET_SELECTED_BLOCK(copy);
+            SELECTED.value.decktop.y += 1;
+            SELECTED.value.decktop.x += 1;
+            SELECTED.value.tablet.y += 1;
+            SELECTED.value.tablet.x += 1;
+            SELECTED.value.mobile.y += 1;
+            SELECTED.value.mobile.x += 1;
+            BLOCKS.value.push(copy);
+          });
+        }
+        break;
 
       default:
         break;
     }
   }
 });
+
+const save = () => {
+  window.navigator.clipboard.writeText(JSON.stringify(PAGE.value));
+  alert("ok");
+};
 
 onMounted(() => {
   SET(config);
@@ -136,12 +168,14 @@ const getPageStyle = computed(() => {
   position: absolute
   display: flex
   // gap: 10px
-  height: 100vh
+  height: max-content
+  max-height: 100vh
   backdrop-filter: blur(10px)
   background: rgb(var(--contrast_100), 0.6)
   border-right: 1px solid rgb(var(--contrast_100))
   gap: 20px
   padding: 20px
+  padding-left: 20px
   &_block
     width: 300px
     overflow-y: auto

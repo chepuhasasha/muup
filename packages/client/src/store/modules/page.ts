@@ -27,7 +27,7 @@ export const page: Module<IPageState, State> = {
       state.page = page;
       document.title = page.title;
     },
-    SET_SELECTED_BLOCK(state, block: BlockConfig) {
+    SET_SELECTED_BLOCK(state, block: BlockConfig | null) {
       state.selectedBlock = block;
     },
   },
@@ -35,7 +35,7 @@ export const page: Module<IPageState, State> = {
     setPage({ commit }, page: PageConfig) {
       commit("SET_PAGE", page);
     },
-    setSelectedBlock({ commit }, block: BlockConfig) {
+    setSelectedBlock({ commit }, block: BlockConfig | null) {
       commit("SET_SELECTED_BLOCK", block);
     },
   },
@@ -51,7 +51,7 @@ export function PageStoreHelper() {
     IMAGES: computed<PageConfig["images"]>(() => STORE.getters.IMAGES),
     SELECTED: computed<BlockConfig>(() => STORE.getters.SELECTED),
     SET: (page: PageConfig) => STORE.dispatch("setPage", page),
-    SET_SELECTED_BLOCK: (block: BlockConfig) =>
+    SET_SELECTED_BLOCK: (block: BlockConfig | null) =>
       STORE.dispatch("setSelectedBlock", block),
   };
 }

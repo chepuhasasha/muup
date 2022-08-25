@@ -1,5 +1,6 @@
 <template lang="pug">
-component.block(:is='config?.tag' 
+component.block(
+  :is='config?.tag' 
   :style='style'
   @click="SET_SELECTED_BLOCK(config)" 
   :class='{block_selected: config === SELECTED}') 
@@ -17,6 +18,7 @@ const { SET_SELECTED_BLOCK, SELECTED } = PageStoreHelper();
 const props = defineProps({
   config: { type: Object as PropType<BlockConfig>, require: true },
 });
+
 const style = computed(() => {
   if (props.config) {
     const result: Record<string, unknown> = { ...props.config.style };
@@ -24,7 +26,6 @@ const style = computed(() => {
     result.gridArea = `${area.y} / ${area.x} / ${+area.y + +area.h} / ${
       +area.x + +area.w
     }`;
-    console.log(result);
     return result;
   }
   return {};

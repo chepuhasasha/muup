@@ -34,11 +34,11 @@ export const page: Module<IPageState, State> = {
 export function PageStoreHelper() {
   const STORE = useStore(key);
   return {
-    PAGE: computed(() => STORE.getters.PAGE),
-    TITLE: computed(() => STORE.getters.TITLE),
-    GRID: computed(() => STORE.getters.GRID),
-    BLOCKS: computed(() => STORE.getters.BLOCKS),
-    IMAGES: computed(() => STORE.getters.IMAGES),
+    PAGE: computed<PageConfig>(() => STORE.getters.PAGE),
+    TITLE: computed<PageConfig["title"]>(() => STORE.getters.TITLE),
+    GRID: computed<PageConfig["grid"]>(() => STORE.getters.GRID),
+    BLOCKS: computed<PageConfig["blocks"]>(() => STORE.getters.BLOCKS),
+    IMAGES: computed<PageConfig["images"]>(() => STORE.getters.IMAGES),
     SET: (page: PageConfig) => STORE.dispatch("setPage", page),
   };
 }

@@ -6,7 +6,7 @@ import { onMounted, PropType, ref, watch } from "vue";
 import * as PIXI from "pixi.js";
 import { PageStoreHelper } from "../../store/modules/page";
 
-interface IMask {
+interface IMaskShape {
   type: "rect" | "ellipse";
   x: number;
   y: number;
@@ -19,7 +19,7 @@ const div = ref<HTMLDivElement | null>(null);
 const props = defineProps({
   img: { type: String as PropType<string> },
   shapes: {
-    type: Array as PropType<IMask[]>,
+    type: Array as PropType<IMaskShape[]>,
     default: () => [
       { type: "rect", x: 0, y: 0, w: 300, h: 300 },
       // { type: "ellipse", x: 40, y: 200, w: 80, h: 300 },
@@ -68,4 +68,8 @@ onMounted(() => {
   if (div.value) div.value.appendChild(app.view);
 });
 </script>
-<style lang="sass"></style>
+<style lang="sass">
+.mask
+  width: 100%
+  height: 100%
+</style>

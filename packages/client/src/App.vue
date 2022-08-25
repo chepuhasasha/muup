@@ -1,19 +1,23 @@
 <template lang="pug">
+h1 {{ SCREEN }}
 router-view
 </template>
 <script lang="ts" setup>
 import { onMounted } from "vue";
 import { useStore } from "vuex";
 import { key } from "./store";
+import { ScreenStoreHelper } from "./store/modules/screen";
+
+const { SET, SCREEN } = ScreenStoreHelper();
 
 const store = useStore(key);
 const resize = () => {
-  store.dispatch("setScreenMode", window.innerWidth);
+  SET(window.innerWidth);
 };
 
 onMounted(() => {
   store.dispatch("setTheme", "base");
-  store.dispatch("setScreenMode", window.innerWidth);
+  SET(window.innerWidth);
   window.addEventListener("resize", resize);
 });
 </script>

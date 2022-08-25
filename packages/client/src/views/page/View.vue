@@ -1,6 +1,6 @@
 <template lang="pug">
 .page(:style='getPageStyle')
-  Block(v-for='(block, i) in BLOCKS' :style='block.style' :widgets="block.widgets") {{i}}
+  Block(v-for='(block, i) in BLOCKS' :config='block') {{i}}
 </template>
 <script lang="ts" setup>
 import type { PageConfig } from "@/types/pageConfig";

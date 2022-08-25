@@ -1,15 +1,28 @@
 <template lang="pug">
-component.block(:is='tag')
-  component(v-for='widget in widgets' :is='widget.type' v-bind='widget.props') 
+component.block(:is='config?.tag' :style='style') 
+  component(v-for='widget in config?.widgets' :is='widget.type' v-bind='widget.props') 
 </template>
 <script lang="ts" setup>
 import { computed } from "vue";
 import type { PropType } from "vue";
-import { WidgetConfig } from "@/types/widgetConfig";
+import { BlockConfig } from "@/types/blockConfig";
+import { ScreenStoreHelper } from "../../store/modules/screen";
 
+const { SCREEN } = ScreenStoreHelper();
 const props = defineProps({
-  tag: { type: String as PropType<string>, default: "div" },
-  widgets: { type: Array as PropType<WidgetConfig[]>, default: () => [] },
+  config: { type: Object as PropType<BlockConfig>, require: true },
+});
+const style = computed(() => {
+  if (props.config) {
+    const result: Record<string, unknown> = { ...props.config.style };
+    const area = props.config[SCREEN.value];
+    result.gridArea = `${area[0]} / ${area[1]} / ${area[1] + area[2]} / ${
+      area[0] + area[3]
+    }`;
+    console.log(result);
+    return result;
+  }
+  return {};
 });
 </script>
 

@@ -10,36 +10,24 @@
   "blocks": [
     {
       "tag": "div",
-      "desktop": [
+      "decktop": [
         1,
         1,
         5,
         3
       ],
-      "tablet": [],
-      "mobile": [],
-      "style": {
-        "background": "rgb(var(--contrast_200))"
-      },
-      "widgets": [
-        {
-          "type": "Mask",
-          "props": {
-            "img": "test"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "div",
-      "desktop": [
+      "tablet": [
         1,
         1,
-        5,
-        3
+        2,
+        1
       ],
-      "tablet": [],
-      "mobile": [],
+      "mobile": [
+        1,
+        1,
+        2,
+        2
+      ],
       "style": {
         "background": "rgb(var(--contrast_200))"
       },

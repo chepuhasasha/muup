@@ -1,8 +1,10 @@
-import { Module } from "vuex";
-import { State } from "../index";
+import { PageConfig } from "@/types/pageConfig";
+import { computed } from "vue";
+import { Module, useStore } from "vuex";
+import { key, State } from "../index";
 
 export interface IScreenState {
-  screen: string;
+  screen: "mobile" | "tablet" | "decktop";
 }
 
 export const screen: Module<IScreenState, State> = {
@@ -25,3 +27,11 @@ export const screen: Module<IScreenState, State> = {
     },
   },
 };
+
+export function ScreenStoreHelper() {
+  const STORE = useStore(key);
+  return {
+    SCREEN: computed<IScreenState["screen"]>(() => STORE.getters.SCREEN),
+    SET: (size: number) => STORE.dispatch("setScreenMode", size),
+  };
+}

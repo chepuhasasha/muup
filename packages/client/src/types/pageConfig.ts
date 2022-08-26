@@ -9,3 +9,9 @@ export interface PageConfig {
     [key: string]: string;
   };
 }
+
+export interface PageMin {
+  id: string;
+  title: string;
+  path: string;
+}

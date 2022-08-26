@@ -3,20 +3,19 @@ router-view
 </template>
 <script lang="ts" setup>
 import { onMounted } from "vue";
-import { useStore } from "vuex";
 import { key } from "./store";
 import { ScreenStoreHelper } from "./store/modules/screen";
+import { ThemeStoreHelper } from "./store/modules/theme";
 
-const { SET } = ScreenStoreHelper();
+const SCREEN = ScreenStoreHelper();
+const THEME = ThemeStoreHelper();
 
-const store = useStore(key);
 const resize = () => {
-  SET(window.innerWidth);
+  SCREEN.SET(window.innerWidth);
 };
-
 onMounted(() => {
-  store.dispatch("setTheme", "base");
-  SET(window.innerWidth);
+  THEME.SET("base");
+  SCREEN.SET(window.innerWidth);
   window.addEventListener("resize", resize);
 });
 </script>

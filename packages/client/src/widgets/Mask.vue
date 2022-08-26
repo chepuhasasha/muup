@@ -4,7 +4,7 @@
 <script lang="ts" setup>
 import { onMounted, PropType, ref, watch } from "vue";
 import * as PIXI from "pixi.js";
-import { PageStoreHelper } from "../../store/modules/page";
+import { PageStoreHelper } from "@/store/modules/page";
 
 interface IMaskShape {
   type: "rect" | "ellipse";

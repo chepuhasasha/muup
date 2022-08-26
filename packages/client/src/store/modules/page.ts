@@ -33,6 +33,7 @@ export const page: Module<IPageState, State> = {
   },
   actions: {
     setPage({ commit }, page: PageConfig) {
+      console.log(page);
       commit("SET_PAGE", page);
     },
     setSelectedBlock({ commit }, block: BlockConfig | null) {

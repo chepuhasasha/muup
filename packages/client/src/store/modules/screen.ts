@@ -1,4 +1,3 @@
-import { PageConfig } from "@/types/pageConfig";
 import { computed } from "vue";
 import { Module, useStore } from "vuex";
 import { key, State } from "../index";

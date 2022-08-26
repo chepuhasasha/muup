@@ -1,8 +1,9 @@
-import { Module } from "vuex";
+import { Module, useStore } from "vuex";
 import { ITheme } from "@/types/theme";
 import { ThemeName } from "@/style/themes";
 import { themes } from "@/style/themes/index";
-import { State } from "../index";
+import { key, State } from "../index";
+import { computed } from "vue";
 
 export interface IThemeState {
   name: ThemeName;
@@ -40,3 +41,11 @@ export const theme: Module<IThemeState, State> = {
     },
   },
 };
+
+export function ThemeStoreHelper() {
+  const STORE = useStore(key);
+  return {
+    THEME: computed<IThemeState["theme"]>(() => STORE.getters.THEME),
+    SET: (name: ThemeName) => STORE.dispatch("setTheme", name),
+  };
+}

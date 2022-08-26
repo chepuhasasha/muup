@@ -1,17 +1,34 @@
 <template lang="pug">
-.toolbar(:class='{ toolbar_vertical: SCREEN === "mobile"}')
+.toolbar(:class='{ toolbar_vertical: SCREEN === "mobile"}' @keydown.stop)
   User.toolbar_block
+  .toolbar_btn(title='Layout settings' v-if='SELECTED' @click="showedMenu = 'Layout'")
+    Icon(icon='layout' color='rgba(255, 255, 255, 0.6)')
+  .toolbar_btn(title='Style settings' v-if='SELECTED')
+    Icon(icon='colors' color='rgba(255, 255, 255, 0.6)')
+  .toolbar_btn(title='Widgets lib' v-if='SELECTED')
+    Icon(icon='stars' color='rgba(255, 255, 255, 0.6)')
+  .toolbar_btn(title='Web settings' v-if='!SELECTED')
+    Icon(icon='web' color='rgba(255, 255, 255, 0.6)')
+  .toolbar_btn(title='Add block' v-if='!SELECTED')
+    Icon(icon='plus' color='rgba(255, 255, 255, 0.6)')
   PageProps(v-if='!SELECTED').toolbar_block
+  .toolbar_block(style="width: 100%;")
+  .toolbar_block {{ SCREEN }}
+  .toolbar_menu(v-if='showedMenu')
+    Layout(v-if='showedMenu === "Layout" && SELECTED')
 </template>
 <script lang="ts" setup>
+import { ref } from "vue";
 import User from "./User.vue";
+import PageProps from "./PageProps.vue";
+import Layout from "./Layout.vue";
 import { PageStoreHelper } from "@/store/modules/page";
 import { ScreenStoreHelper } from "../../../store/modules/screen";
-import PageProps from "./PageProps.vue";
 
-const { SET, GRID, PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } =
-  PageStoreHelper();
+const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = PageStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
+
+const showedMenu = ref<"Layout" | null>(null);
 
 const keydownHandlers: {
   [key: string]: { ctrl: boolean; handler: (e: KeyboardEvent) => void };
@@ -104,12 +121,58 @@ document.addEventListener("keydown", keydown);
   background: #1E1F29
   width: 100%
   height: max-content
+  z-index: 9999
   &_vertical
     flex-direction: column
+  &_btn
+    position: relative
+    display: flex
+    min-width: 48px
+    align-items: center
+    justify-content: center
+    background: #171822
+    &:hover
+      background: #189EFF
+  &_menu
+    display: flex
+    overflow-x: auto
+    position: absolute
+    top: 100%
+    left: 0
+    background: #1E1F29
+    padding: 0
+    width: 100%
+    padding: 2px 0
+    gap: 2px
   &_block
     background: #171822
     display: flex
     gap: 10px
     padding: 10px
     align-items: center
+    font-family: var(--font_200)
+    color: rgba(255,255,255, 0.6)
+    font-size: 12px
+    span
+        color: rgba(255,255,255, 0.6)
+  .prop
+    display: flex
+    gap: 10px
+    align-items: center
+    width: 100%
+    justify-content: space-between
+
+    &_name
+      font-size: 12px
+      font-family: var(--font_200)
+      color: rgba(255,255,255, 0.4)
+    &_input
+      font-size: 12px
+      background: #1E1F29
+      padding: 2px 4px
+      border: none
+      outline: none
+      font-family: var(--font_200)
+      color: rgba(255,255,255, 0.6)
+      width: 50px
 </style>

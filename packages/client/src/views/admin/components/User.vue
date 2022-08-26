@@ -15,6 +15,7 @@ const { USER } = UserStoreHelper();
   &_avatar
     border-radius: 100%
   &_info
+    min-width: max-content
     display: flex
     flex-direction: column
     *

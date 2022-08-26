@@ -3,7 +3,7 @@ component.block(
   :is='config?.tag' 
   :style='style'
   @click="SET_SELECTED_BLOCK(config)" 
-  :class='{block_selected: config === SELECTED}') 
+  :class='{block_unselected: config !== SELECTED && SELECTED}') 
   component(v-for='widget in config?.widgets' :is='widget.type' v-bind='widget.props') 
 </template>
 <script lang="ts" setup>
@@ -35,8 +35,7 @@ const style = computed(() => {
 <style lang="sass">
 .block
   overflow: hidden
-  &_selected
-    box-shadow: 0px 0px 0px 2px inset rgb(var(--accent_100))
-  // padding: 100px
-  // background: rgb(var(--contrast_200))
+  transition: all 0.2s linear
+  &_unselected
+    opacity: 0.8
 </style>

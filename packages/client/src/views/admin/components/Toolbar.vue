@@ -14,8 +14,8 @@
   PageProps(v-if='!SELECTED').toolbar_block
   .toolbar_block(style="width: 100%;")
   .toolbar_block {{ SCREEN }}
-  .toolbar_menu(v-if='showedMenu')
-    Layout(v-if='showedMenu === "Layout" && SELECTED')
+.toolbar_menu(v-if='showedMenu')
+  Layout(v-if='showedMenu === "Layout" && SELECTED')
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
@@ -115,13 +115,12 @@ document.addEventListener("keydown", keydown);
 </script>
 <style lang="sass">
 .toolbar
-  position: fixed
+  position: relative
   display: flex
   gap: 2px
   background: #1E1F29
   width: 100%
   height: max-content
-  z-index: 9999
   &_vertical
     flex-direction: column
   &_btn
@@ -136,7 +135,7 @@ document.addEventListener("keydown", keydown);
   &_menu
     display: flex
     overflow-x: auto
-    position: absolute
+    // position: absolute
     top: 100%
     left: 0
     background: #1E1F29
@@ -155,24 +154,24 @@ document.addEventListener("keydown", keydown);
     font-size: 12px
     span
         color: rgba(255,255,255, 0.6)
-  .prop
-    display: flex
-    gap: 10px
-    align-items: center
-    width: 100%
-    justify-content: space-between
+.prop
+  display: flex
+  gap: 10px
+  align-items: center
+  width: 100%
+  justify-content: space-between
 
-    &_name
-      font-size: 12px
-      font-family: var(--font_200)
-      color: rgba(255,255,255, 0.4)
-    &_input
-      font-size: 12px
-      background: #1E1F29
-      padding: 2px 4px
-      border: none
-      outline: none
-      font-family: var(--font_200)
-      color: rgba(255,255,255, 0.6)
-      width: 50px
+  &_name
+    font-size: 12px
+    font-family: var(--font_200)
+    color: rgba(255,255,255, 0.4)
+  &_input
+    font-size: 12px
+    background: #1E1F29
+    padding: 2px 4px
+    border: none
+    outline: none
+    font-family: var(--font_200)
+    color: rgba(255,255,255, 0.6)
+    width: 50px
 </style>

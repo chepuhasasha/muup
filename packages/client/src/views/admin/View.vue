@@ -66,8 +66,9 @@ Toolbar
 
     //- Button(@click='save') SAVE
   Icon(pointer @click='edit=!edit'  icon='cross' size='12px')
-.page(:style='getPageStyle')
-  Block(v-for='(block, i) in BLOCKS' :config='block')
+.admin
+  .page(:style='getPageStyle')
+    Block(v-for='(block, i) in BLOCKS' :config='block')
 </template>
 <script lang="ts" setup>
 import type { PageConfig } from "@/types/pageConfig";
@@ -107,6 +108,12 @@ const getPageStyle = computed(() => {
 });
 </script>
 <style lang="sass">
+.admin
+  width: 100%
+  height: 100%
+  max-width: 100%
+  max-height: 100%
+  overflow-y: auto
 .page
   display: grid
   width: 100%

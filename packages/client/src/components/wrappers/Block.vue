@@ -37,5 +37,5 @@ const style = computed(() => {
   overflow: hidden
   transition: all 0.2s linear
   &_unselected
-    opacity: 0.8
+    opacity: 0.5
 </style>

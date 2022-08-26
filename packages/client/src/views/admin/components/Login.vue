@@ -1,5 +1,8 @@
 <template lang="pug">
-h1 EDITOR
+.login login 
 </template>
 <script lang="ts" setup></script>
-<style lang="sass"></style>
+
+<style lang="sass">
+.login
+</style>

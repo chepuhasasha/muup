@@ -1,4 +1,6 @@
 <template lang="pug">
+Toolbar
+Login
 h1 ADMIN
 .editor(v-if='USER && PAGE' @keydown.stop)
   .editor_block(v-if='edit')
@@ -76,6 +78,8 @@ import { PageStoreHelper } from "@/store/modules/page";
 import config from "./testpage.json";
 import { UserStoreHelper } from "@/store/modules/user";
 import { ScreenStoreHelper } from "@/store/modules/screen";
+import Toolbar from "./components/Toolbar.vue";
+import Login from "./components/Login.vue";
 
 const route = useRoute();
 const edit = ref<boolean>(true);
@@ -84,53 +88,53 @@ const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
   PageStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
-document.addEventListener("keydown", (e) => {
-  if (SELECTED.value) {
-    switch (e.code) {
-      case "ArrowUp":
-        SELECTED.value[SCREEN.value].y -= 1;
-        break;
-      case "ArrowDown":
-        SELECTED.value[SCREEN.value].y += 1;
-        break;
-      case "ArrowLeft":
-        SELECTED.value[SCREEN.value].x -= 1;
-        break;
-      case "ArrowRight":
-        SELECTED.value[SCREEN.value].x += 1;
-        break;
-      case "Delete":
-        // eslint-disable-next-line no-case-declarations
-        const i = BLOCKS.value.indexOf(SELECTED.value);
-        BLOCKS.value.splice(i, 1);
-        SET_SELECTED_BLOCK(null);
-        break;
-      case "KeyC":
-        if (e.ctrlKey) {
-          window.navigator.clipboard.writeText(JSON.stringify(SELECTED.value));
-        }
-        break;
-      case "KeyV":
-        if (e.ctrlKey) {
-          window.navigator.clipboard.readText().then((res) => {
-            const copy = JSON.parse(res);
-            SET_SELECTED_BLOCK(copy);
-            SELECTED.value.decktop.y += 1;
-            SELECTED.value.decktop.x += 1;
-            SELECTED.value.tablet.y += 1;
-            SELECTED.value.tablet.x += 1;
-            SELECTED.value.mobile.y += 1;
-            SELECTED.value.mobile.x += 1;
-            BLOCKS.value.push(copy);
-          });
-        }
-        break;
+// document.addEventListener("keydown", (e) => {
+//   if (SELECTED.value) {
+//     switch (e.code) {
+//       case "ArrowUp":
+//         SELECTED.value[SCREEN.value].y -= 1;
+//         break;
+//       case "ArrowDown":
+//         SELECTED.value[SCREEN.value].y += 1;
+//         break;
+//       case "ArrowLeft":
+//         SELECTED.value[SCREEN.value].x -= 1;
+//         break;
+//       case "ArrowRight":
+//         SELECTED.value[SCREEN.value].x += 1;
+//         break;
+//       case "Delete":
+//         // eslint-disable-next-line no-case-declarations
+//         const i = BLOCKS.value.indexOf(SELECTED.value);
+//         BLOCKS.value.splice(i, 1);
+//         SET_SELECTED_BLOCK(null);
+//         break;
+//       case "KeyC":
+//         if (e.ctrlKey) {
+//           window.navigator.clipboard.writeText(JSON.stringify(SELECTED.value));
+//         }
+//         break;
+//       case "KeyV":
+//         if (e.ctrlKey) {
+//           window.navigator.clipboard.readText().then((res) => {
+//             const copy = JSON.parse(res);
+//             SET_SELECTED_BLOCK(copy);
+//             SELECTED.value.decktop.y += 1;
+//             SELECTED.value.decktop.x += 1;
+//             SELECTED.value.tablet.y += 1;
+//             SELECTED.value.tablet.x += 1;
+//             SELECTED.value.mobile.y += 1;
+//             SELECTED.value.mobile.x += 1;
+//             BLOCKS.value.push(copy);
+//           });
+//         }
+//         break;
 
-      default:
-        break;
-    }
-  }
-});
+//       default:
+//         break;
+//     }
+//   }
+// });
 
 const save = () => {
   window.navigator.clipboard.writeText(JSON.stringify(PAGE.value));

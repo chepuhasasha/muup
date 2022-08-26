@@ -1,9 +1,8 @@
 <template lang="pug">
 Toolbar
-Login
-h1 ADMIN
-.editor(v-if='USER && PAGE' @keydown.stop)
-  .editor_block(v-if='edit')
+//- Login
+//- .editor(v-if='USER && PAGE' @keydown.stop)
+  .editor_block
     h3 Settings
     .editor_item
       span Title
@@ -65,7 +64,7 @@ h1 ADMIN
           span h
           Input(size='s' v-model='SELECTED.mobile.h' type='number' nobtn)
 
-    Button(@click='save') SAVE
+    //- Button(@click='save') SAVE
   Icon(pointer @click='edit=!edit'  icon='cross' size='12px')
 .page(:style='getPageStyle')
   Block(v-for='(block, i) in BLOCKS' :config='block')
@@ -82,64 +81,11 @@ import Toolbar from "./components/Toolbar.vue";
 import Login from "./components/Login.vue";
 
 const route = useRoute();
-const edit = ref<boolean>(true);
 const pageName = ref<string | string[]>();
 const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
   PageStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
-// document.addEventListener("keydown", (e) => {
-//   if (SELECTED.value) {
-//     switch (e.code) {
-//       case "ArrowUp":
-//         SELECTED.value[SCREEN.value].y -= 1;
-//         break;
-//       case "ArrowDown":
-//         SELECTED.value[SCREEN.value].y += 1;
-//         break;
-//       case "ArrowLeft":
-//         SELECTED.value[SCREEN.value].x -= 1;
-//         break;
-//       case "ArrowRight":
-//         SELECTED.value[SCREEN.value].x += 1;
-//         break;
-//       case "Delete":
-//         // eslint-disable-next-line no-case-declarations
-//         const i = BLOCKS.value.indexOf(SELECTED.value);
-//         BLOCKS.value.splice(i, 1);
-//         SET_SELECTED_BLOCK(null);
-//         break;
-//       case "KeyC":
-//         if (e.ctrlKey) {
-//           window.navigator.clipboard.writeText(JSON.stringify(SELECTED.value));
-//         }
-//         break;
-//       case "KeyV":
-//         if (e.ctrlKey) {
-//           window.navigator.clipboard.readText().then((res) => {
-//             const copy = JSON.parse(res);
-//             SET_SELECTED_BLOCK(copy);
-//             SELECTED.value.decktop.y += 1;
-//             SELECTED.value.decktop.x += 1;
-//             SELECTED.value.tablet.y += 1;
-//             SELECTED.value.tablet.x += 1;
-//             SELECTED.value.mobile.y += 1;
-//             SELECTED.value.mobile.x += 1;
-//             BLOCKS.value.push(copy);
-//           });
-//         }
-//         break;
-
-//       default:
-//         break;
-//     }
-//   }
-// });
-
-const save = () => {
-  window.navigator.clipboard.writeText(JSON.stringify(PAGE.value));
-  alert("ok");
-};
 
 onMounted(() => {
   SET(config);
@@ -154,6 +100,7 @@ const getPageStyle = computed(() => {
         100 / GRID.value.cols
       }%)`,
       gap: `${GRID.value.gap}px`,
+      background: PAGE.value.background,
     };
   }
   return {};

@@ -5,6 +5,7 @@ export interface PageConfig {
   title: string;
   grid: { rows: number; cols: number; gap: number };
   blocks: BlockConfig[];
+  background: string;
   images: {
     [key: string]: string;
   };

@@ -2,6 +2,7 @@
   "path": "test",
   "title": "Test Page",
   "tag": "section",
+  "background": "#ff0000",
   "grid": {
     "rows": 20,
     "cols": 20,

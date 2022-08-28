@@ -15,19 +15,28 @@
         "x": 1,
         "y": 1,
         "w": 10,
-        "h": 10
+        "h": 10,
+        "direction": "row",
+        "padding": "20px",
+        "gap": 10
       },
       "tablet": {
         "x": 1,
         "y": 1,
         "w": 10,
-        "h": 10
+        "h": 10,
+        "direction": "row",
+        "padding": "20px",
+        "gap": 10
       },
       "mobile": {
         "x": 1,
         "y": 1,
         "w": 10,
-        "h": 10
+        "h": 10,
+        "direction": "row",
+        "padding": "20px",
+        "gap": 10
       },
       "style": {
         "background": "rgb(var(--contrast_200))"
@@ -38,65 +47,7 @@
           "props": {
             "img": "test"
           }
-        }
-      ]
-    },
-    {
-      "tag": "div",
-      "decktop": {
-        "x": 11,
-        "y": "1",
-        "w": "10",
-        "h": 10
-      },
-      "tablet": {
-        "x": 1,
-        "y": 1,
-        "w": 10,
-        "h": 10
-      },
-      "mobile": {
-        "x": 1,
-        "y": 1,
-        "w": "20",
-        "h": 10
-      },
-      "style": {
-        "background": "rgb(var(--contrast_200))"
-      },
-      "widgets": [
-        {
-          "type": "Mask",
-          "props": {
-            "img": "test"
-          }
-        }
-      ]
-    },
-    {
-      "tag": "div",
-      "decktop": {
-        "x": 1,
-        "y": 11,
-        "w": "20",
-        "h": 10
-      },
-      "tablet": {
-        "x": "11",
-        "y": "11",
-        "w": "10",
-        "h": 10
-      },
-      "mobile": {
-        "x": "1",
-        "y": "11",
-        "w": "20",
-        "h": 10
-      },
-      "style": {
-        "background": "rgb(var(--contrast_200))"
-      },
-      "widgets": [
+        },
         {
           "type": "Mask",
           "props": {

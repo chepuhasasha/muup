@@ -1,71 +1,5 @@
 <template lang="pug">
 Toolbar
-//- Login
-//- .editor(v-if='USER && PAGE' @keydown.stop)
-  .editor_block
-    h3 Settings
-    .editor_item
-      span Title
-      Input(size='s' v-model='PAGE.title' nobtn)
-    .editor_item
-      span URL
-      Input(size='s' v-model='PAGE.path' nobtn)
-    .editor_row
-      .editor_item
-        span cols
-        Input(size='s' v-model='GRID.cols' type='number' nobtn)
-      .editor_item
-        span rows
-        Input(size='s' v-model='GRID.rows' type='number' nobtn)
-      .editor_item
-        span gap
-        Input(size='s' v-model='GRID.gap' type='number' nobtn)
-    .editor_selected(v-if='SELECTED')
-      span DECKTOP
-      .editor_row
-        .editor_item
-          span x
-          Input(size='s' v-model='SELECTED.decktop.x' type='number' nobtn)
-        .editor_item
-          span y
-          Input(size='s' v-model='SELECTED.decktop.y' type='number' nobtn)
-        .editor_item
-          span w
-          Input(size='s' v-model='SELECTED.decktop.w' type='number' nobtn)
-        .editor_item
-          span h
-          Input(size='s' v-model='SELECTED.decktop.h' type='number' nobtn)
-      span TABLET
-      .editor_row
-        .editor_item
-          span x
-          Input(size='s' v-model='SELECTED.tablet.x' type='number' nobtn)
-        .editor_item
-          span y
-          Input(size='s' v-model='SELECTED.tablet.y' type='number' nobtn)
-        .editor_item
-          span w
-          Input(size='s' v-model='SELECTED.tablet.w' type='number' nobtn)
-        .editor_item
-          span h
-          Input(size='s' v-model='SELECTED.tablet.h' type='number' nobtn)
-      span MOBILE
-      .editor_row
-        .editor_item
-          span x
-          Input(size='s' v-model='SELECTED.mobile.x' type='number' nobtn)
-        .editor_item
-          span y
-          Input(size='s' v-model='SELECTED.mobile.y' type='number' nobtn)
-        .editor_item
-          span w
-          Input(size='s' v-model='SELECTED.mobile.w' type='number' nobtn)
-        .editor_item
-          span h
-          Input(size='s' v-model='SELECTED.mobile.h' type='number' nobtn)
-
-    //- Button(@click='save') SAVE
-  Icon(pointer @click='edit=!edit'  icon='cross' size='12px')
 .admin
   .page(:style='getPageStyle')
     Block(v-for='(block, i) in BLOCKS' :config='block')
@@ -74,7 +8,7 @@ Toolbar
 import type { PageConfig } from "@/types/pageConfig";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { PageStoreHelper } from "@/store/modules/page";
+import { ConfigStoreHelper } from "@/store/modules/config";
 import config from "./testpage.json";
 import { UserStoreHelper } from "@/store/modules/user";
 import { ScreenStoreHelper } from "@/store/modules/screen";
@@ -83,13 +17,13 @@ import Login from "./components/Login.vue";
 
 const route = useRoute();
 const pageName = ref<string | string[]>();
-const { SET, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
-  PageStoreHelper();
+const { SET_PAGE, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
+  ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
 
 onMounted(() => {
-  SET(config);
+  SET_PAGE(config);
   pageName.value = route.params.name;
 });
 

@@ -5,12 +5,12 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
-import { PageStoreHelper } from "@/store/modules/page";
+import { ConfigStoreHelper } from "@/store/modules/config";
 import config from "./testpage.json";
 
 const route = useRoute();
 const pageName = ref<string | string[]>();
-const { SET, BLOCKS, GRID } = PageStoreHelper();
+const { SET, BLOCKS, GRID } = ConfigStoreHelper();
 
 onMounted(() => {
   SET(config);

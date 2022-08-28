@@ -14,10 +14,10 @@
     input.prop_input(type='color' v-model='PAGE.background')
 </template>
 <script lang="ts" setup>
-import { PageStoreHelper } from "../../../store/modules/page";
-import { ScreenStoreHelper } from "../../../store/modules/screen";
+import { ConfigStoreHelper } from "@/store/modules/config";
+import { ScreenStoreHelper } from "@/store/modules/screen";
 
-const { GRID, PAGE } = PageStoreHelper();
+const { GRID, PAGE } = ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 </script>
 <style lang="sass">

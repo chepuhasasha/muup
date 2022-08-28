@@ -1,34 +1,66 @@
 <template lang="pug">
 .toolbar(:class='{ toolbar_vertical: SCREEN === "mobile"}' @keydown.stop)
   User.toolbar_block
-  .toolbar_btn(title='Layout settings' v-if='SELECTED' @click="showedMenu = 'Layout'")
-    Icon(icon='layout' color='rgba(255, 255, 255, 0.6)')
-  .toolbar_btn(title='Style settings' v-if='SELECTED')
-    Icon(icon='colors' color='rgba(255, 255, 255, 0.6)')
-  .toolbar_btn(title='Widgets lib' v-if='SELECTED')
-    Icon(icon='stars' color='rgba(255, 255, 255, 0.6)')
-  .toolbar_btn(title='Web settings' v-if='!SELECTED')
-    Icon(icon='web' color='rgba(255, 255, 255, 0.6)')
-  .toolbar_btn(title='Add block' v-if='!SELECTED')
-    Icon(icon='plus' color='rgba(255, 255, 255, 0.6)')
+  ToolbarBtn(
+    v-if='SELECTED'
+    :active='menu.layout'
+    @click="menu.layout = !menu.layout"
+    icon='layout' title='Layout settings')
+  ToolbarBtn(
+    v-if='SELECTED'
+    :active='menu.style'
+    @click="menu.style = !menu.style"
+    icon='colors' title='Style settings')
+  ToolbarBtn(
+    v-if='SELECTED'
+    :active='menu.widgets'
+    @click="menu.widgets = !menu.widgets"
+    icon='stars' title='Widgets lib')
+  ToolbarBtn(
+    v-if='!SELECTED'
+    :active='menu.widgets'
+    @click="menu.widgets = !menu.widgets"
+    icon='stars' title='Web settings')
+  ToolbarBtn(
+    v-if='!SELECTED'
+    :active='menu.add'
+    @click="menu.add = !menu.add"
+    icon='plus' title='Add block')
+
   PageProps(v-if='!SELECTED').toolbar_block
   .toolbar_block(style="width: 100%;")
   .toolbar_block {{ SCREEN }}
-.toolbar_menu(v-if='showedMenu')
-  Layout(v-if='showedMenu === "Layout" && SELECTED')
+.toolbar_menu
+  Layout(v-if='menu.layout && SELECTED')
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
 import User from "./User.vue";
 import PageProps from "./PageProps.vue";
 import Layout from "./Layout.vue";
-import { PageStoreHelper } from "@/store/modules/page";
+import ToolbarBtn from "./ToolbarBtn.vue";
+import { ConfigStoreHelper } from "@/store/modules/config";
 import { ScreenStoreHelper } from "../../../store/modules/screen";
 
-const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = PageStoreHelper();
+const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 
-const showedMenu = ref<"Layout" | null>(null);
+const menu = ref({
+  layout: false,
+  style: false,
+  widgets: false,
+  web: false,
+  add: false,
+});
+
+const showedMenu = ref<string | null>(null);
+const selectMenu = (name: string) => {
+  if (showedMenu.value === name) {
+    showedMenu.value = null;
+  } else {
+    showedMenu.value = name;
+  }
+};
 
 const keydownHandlers: {
   [key: string]: { ctrl: boolean; handler: (e: KeyboardEvent) => void };
@@ -123,18 +155,13 @@ document.addEventListener("keydown", keydown);
   height: max-content
   &_vertical
     flex-direction: column
-  &_btn
-    position: relative
-    display: flex
-    min-width: 48px
-    align-items: center
-    justify-content: center
-    background: #171822
-    &:hover
-      background: #189EFF
+
   &_menu
     display: flex
     overflow-x: auto
+    overflow-x: clip
+    // flex-direction: column
+    // height: max-content
     // position: absolute
     top: 100%
     left: 0
@@ -154,6 +181,9 @@ document.addEventListener("keydown", keydown);
     font-size: 12px
     span
         color: rgba(255,255,255, 0.6)
+    &_col
+      flex-direction: column
+      align-items: start
 .prop
   display: flex
   gap: 10px

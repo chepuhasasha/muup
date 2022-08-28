@@ -10,11 +10,11 @@ component.block(
 import { computed } from "vue";
 import type { PropType } from "vue";
 import { BlockConfig } from "@/types/blockConfig";
-import { ScreenStoreHelper } from "../../store/modules/screen";
-import { PageStoreHelper } from "../../store/modules/page";
+import { ScreenStoreHelper } from "@/store/modules/screen";
+import { ConfigStoreHelper } from "@/store/modules/config";
 
 const { SCREEN } = ScreenStoreHelper();
-const { SET_SELECTED_BLOCK, SELECTED } = PageStoreHelper();
+const { SET_SELECTED_BLOCK, SELECTED } = ConfigStoreHelper();
 const props = defineProps({
   config: { type: Object as PropType<BlockConfig>, require: true },
 });
@@ -26,6 +26,8 @@ const style = computed(() => {
     result.gridArea = `${area.y} / ${area.x} / ${+area.y + +area.h} / ${
       +area.x + +area.w
     }`;
+    result.flexDirection = area.direction;
+    result.gap = area.gap + "px";
     return result;
   }
   return {};
@@ -34,6 +36,7 @@ const style = computed(() => {
 
 <style lang="sass">
 .block
+  display: flex
   overflow: hidden
   transition: all 0.2s linear
   &_unselected

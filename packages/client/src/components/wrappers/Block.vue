@@ -26,6 +26,10 @@ const style = computed(() => {
     result.gridArea = `${area.y} / ${area.x} / ${+area.y + +area.h} / ${
       +area.x + +area.w
     }`;
+    result.paddingTop = `${area.padding_top}px`;
+    result.paddingBottom = `${area.padding_bottom}px`;
+    result.paddingLeft = `${area.padding_left}px`;
+    result.paddingRight = `${area.padding_right}px`;
     result.flexDirection = area.direction;
     result.gap = area.gap + "px";
     return result;

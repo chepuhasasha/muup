@@ -17,7 +17,10 @@
         "w": 10,
         "h": 10,
         "direction": "row",
-        "padding": "20px",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 20,
+        "padding_right": 20,
         "gap": 10
       },
       "tablet": {
@@ -26,7 +29,10 @@
         "w": 10,
         "h": 10,
         "direction": "row",
-        "padding": "20px",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 20,
+        "padding_right": 20,
         "gap": 10
       },
       "mobile": {
@@ -35,7 +41,10 @@
         "w": 10,
         "h": 10,
         "direction": "row",
-        "padding": "20px",
+        "padding_top": 20,
+        "padding_bottom": 20,
+        "padding_left": 20,
+        "padding_right": 20,
         "gap": 10
       },
       "style": {

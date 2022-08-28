@@ -10,7 +10,7 @@ import { icons } from "./icons";
 
 const props = defineProps({
   icon: { type: String as PropType<IconName>, default: "error" },
-  color: { type: String, default: "rgb(var(--contrast_500))" },
+  color: { type: String, default: "rgb(255, 255, 255)" },
   size: { type: String, default: "18px" },
   width: { type: Number, default: 1 },
   pointer: { type: Boolean, default: false },

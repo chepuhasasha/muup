@@ -8,7 +8,10 @@ export interface BlockConfig {
     w: number;
     h: number;
     direction: "column" | "row";
-    padding: string;
+    padding_top: number;
+    padding_bottom: number;
+    padding_left: number;
+    padding_right: number;
     gap: number;
   };
   tablet: {
@@ -17,7 +20,10 @@ export interface BlockConfig {
     w: number;
     h: number;
     direction: "column" | "row";
-    padding: string;
+    padding_top: number;
+    padding_bottom: number;
+    padding_left: number;
+    padding_right: number;
     gap: number;
   };
   mobile: {
@@ -26,12 +32,18 @@ export interface BlockConfig {
     w: number;
     h: number;
     direction: "column" | "row";
-    padding: string;
+    padding_top: number;
+    padding_bottom: number;
+    padding_left: number;
+    padding_right: number;
     gap: number;
   };
   style: {
     background: string;
-    padding: string;
+    padding_top: number;
+    padding_bottom: number;
+    padding_left: number;
+    padding_right: number;
   };
   widgets: WidgetConfig[];
 }

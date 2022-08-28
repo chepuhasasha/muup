@@ -7,7 +7,9 @@ import { onMounted } from "vue";
 import { key } from "./store";
 import { ConfigStoreHelper } from "./store/modules/config";
 import { ScreenStoreHelper } from "./store/modules/screen";
+import { useRouter } from "vue-router";
 
+const router = useRouter();
 const SCREEN = ScreenStoreHelper();
 const { SET_SITE, SET_THEME } = ConfigStoreHelper();
 
@@ -17,6 +19,7 @@ const resize = () => {
 onMounted(() => {
   SCREEN.SET(window.innerWidth);
   window.addEventListener("resize", resize);
+  // router.push(site.home);
   SET_SITE(site);
   SET_THEME(site.active_theme);
 });

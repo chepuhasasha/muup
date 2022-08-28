@@ -1,8 +1,10 @@
 <template lang="pug">
 .input(:class='getClasses')
+  span.input_label(v-if='label') {{ label }}:
   transition(name='slide-fade')
     span.input_error_text(v-if='error') {{ error }}
-  Icon(v-if='icon && !load' :icon='icon' :size='14')
+  Icon(v-if='icon && !load' :icon='icon' size='10px'
+    color='rgb(255,255,255)')
   Loader(v-if='load' size='12px' mode='ring')
   input(
     :title="title"
@@ -12,7 +14,13 @@
     @blur='onfocus(false)'
     @input='$emit("update:modelValue", $event.target?.value)'
   )
-  Icon(pointer icon='cross' size='10px' v-if="modelValue && !nobtn" @click='$emit("update:modelValue", null)')
+  Icon(
+    pointer
+    icon='cross'
+    size='10px'
+    color='rgb(255,255,255)'
+    v-if="modelValue && !nobtn"
+    @click='$emit("update:modelValue", null)')
   slot
 </template>
 
@@ -28,6 +36,7 @@ const props = defineProps({
     default: null,
   },
   title: { type: String as PropType<string>, default: "" },
+  label: { type: String as PropType<string | null>, default: null },
   icon: { type: String as PropType<IconName | null>, default: null },
   nobtn: { type: Boolean as PropType<boolean>, default: false },
   load: { type: Boolean as PropType<boolean>, default: false },
@@ -51,29 +60,28 @@ const getClasses = computed(() => ({
   position: relative
   display: flex
   align-items: center
-  padding: 20px
-  gap: 20px
+  // padding: 20px
+  // gap: 20px
   width: 100%
-  background: rgb(var(--contrast_100))
-  border: 1px dashed rgb(var(--contrast_100))
+  background: #1E1F29
+  // border: 1px dashed rgb(var(--contrast_100))
   border-radius: 4px
+  height: max-content
+
+  &_label
+    font-size: 12px
+    font-family: var(--font_200)
+    color: rgba(255,255,255, 0.4)
 
   input
-    padding: 0
-    background: none
-    outline: none
-    border: none
-    width: 100%
-    color: rgb(var(--contrast_500))
     font-size: 12px
-    font-weight: 500
+    background: #1E1F29
+    padding: 0
+    border: none
+    outline: none
     font-family: var(--font_200)
-    white-space: normal
-    letter-spacing: 0.5px
-    &::placeholder
-      color: rgb(var(--contrast_500), 0.5)
-      font-size: 12px
-      font-weight: 500
+    color: rgba(255,255,255, 0.6)
+    width: 100%
 
 
   &:hover, &_focus
@@ -92,6 +100,9 @@ const getClasses = computed(() => ({
   &_s
     padding: 6px
     gap: 6px
+  &_m
+    padding: 10px
+    gap: 10px
     // input
     //   font-size: 12px
     // TODO: Доделать размеры

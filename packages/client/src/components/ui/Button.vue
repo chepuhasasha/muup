@@ -15,12 +15,13 @@ const props = defineProps<{
   load?: boolean;
   active?: boolean;
   size: "s" | "m" | "l";
-  mode: string;
+  mode?: string;
 }>();
 
 const mode = computed(() => {
   const result: Record<string, boolean> = {
     [`button_${props.size}`]: true,
+    ["button_active"]: props.active,
   };
   if (props.mode) result[`button_${props.mode}`] = true;
 
@@ -40,16 +41,16 @@ const mode = computed(() => {
   font-family: var(--font_200)
   font-weight: 500
   font-size: 16px
-  background: rgb(var(--contrast_400))
-  border: 1px solid rgb(var(--contrast_400))
+  background: #1E1F29
+  border: 1px solid #1E1F29
   padding: 10px 14px
   gap: 14px
   border-radius: 4px
   color: rgb(var(--contrast_200))
-  &:hover, &:focus
-    background: rgb(var(--contrast_200))
-    border: 1px solid rgb(var(--contrast_400))
-    color: rgb(var(--contrast_400))
+  &:hover, &:focus, &_active
+    background: #189EFF
+    // border: 1px solid rgb(var(--contrast_400))
+    // color: rgb(var(--contrast_400))
   &_link
     border: none
     background: none
@@ -74,12 +75,12 @@ const mode = computed(() => {
     padding: 20px 30px
     gap: 30px
   &_s
-    padding: 4px 8px
+    padding: 4px 4px
+    border-radius: 4px
     gap: 6px
     font-size: 12px
     font-weight: 500
     border-width: 1px
-    border-radius: 2px
     &:hover, &:focus
       border-width: 1px
 </style>

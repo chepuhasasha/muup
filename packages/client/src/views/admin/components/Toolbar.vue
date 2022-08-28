@@ -179,29 +179,9 @@ document.addEventListener("keydown", keydown);
     font-family: var(--font_200)
     color: rgba(255,255,255, 0.6)
     font-size: 12px
-    span
-        color: rgba(255,255,255, 0.6)
+    // span
+    //     color: rgba(255,255,255, 0.6)
     &_col
       flex-direction: column
       align-items: start
-.prop
-  display: flex
-  gap: 10px
-  align-items: center
-  width: 100%
-  justify-content: space-between
-
-  &_name
-    font-size: 12px
-    font-family: var(--font_200)
-    color: rgba(255,255,255, 0.4)
-  &_input
-    font-size: 12px
-    background: #1E1F29
-    padding: 2px 4px
-    border: none
-    outline: none
-    font-family: var(--font_200)
-    color: rgba(255,255,255, 0.6)
-    width: 50px
 </style>

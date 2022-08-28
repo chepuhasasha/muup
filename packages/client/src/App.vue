@@ -2,21 +2,23 @@
 router-view
 </template>
 <script lang="ts" setup>
+import site from "./site.json";
 import { onMounted } from "vue";
 import { key } from "./store";
+import { ConfigStoreHelper } from "./store/modules/config";
 import { ScreenStoreHelper } from "./store/modules/screen";
-import { ThemeStoreHelper } from "./store/modules/theme";
 
 const SCREEN = ScreenStoreHelper();
-const THEME = ThemeStoreHelper();
+const { SET_SITE, SET_THEME } = ConfigStoreHelper();
 
 const resize = () => {
   SCREEN.SET(window.innerWidth);
 };
 onMounted(() => {
-  THEME.SET("base");
   SCREEN.SET(window.innerWidth);
   window.addEventListener("resize", resize);
+  SET_SITE(site);
+  SET_THEME(site.active_theme);
 });
 </script>
 <style lang="sass">
@@ -26,7 +28,7 @@ onMounted(() => {
   max-height: 100vh
   width: 100vw
   height: 100vh
-  // overflow-y: auto
+
   display: flex
   flex-direction: column
 </style>

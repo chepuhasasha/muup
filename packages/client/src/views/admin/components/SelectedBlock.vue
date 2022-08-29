@@ -1,5 +1,5 @@
 <template lang="pug">
-PropBlock(:title='SCREEN')
+PropBlock(title='grid')
   Input(label='X' type='number' v-model='screenMode.grid.x' nobtn size='s')
   Input(label='Y' type='number' v-model='screenMode.grid.y' nobtn size='s')
   Input(icon="width" type='number' v-model='screenMode.grid.w' nobtn size='s')

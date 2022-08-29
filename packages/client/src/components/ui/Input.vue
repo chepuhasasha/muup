@@ -3,7 +3,7 @@
   span.input_label(v-if='label') {{ label }}:
   transition(name='slide-fade')
     span.input_error_text(v-if='error') {{ error }}
-  Icon(v-if='icon && !load' :icon='icon' size='10px'
+  Icon(v-if='icon && !load' :icon='icon' size='14px'
     color='rgb(255,255,255)')
   Loader(v-if='load' size='12px' mode='ring')
   input(

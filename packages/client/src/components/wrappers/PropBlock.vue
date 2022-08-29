@@ -40,5 +40,6 @@ const props = defineProps({
     font-family: var(--font_200)
     color: rgba(255, 255, 255, 0.4)
     font-size: 12px
+    font-weight: 600
     grid-area: 1/1/2/3
 </style>

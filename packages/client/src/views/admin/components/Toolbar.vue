@@ -2,23 +2,22 @@
 .toolbar(@keydown.stop)
   User.toolbar_block
   .toolbar_block(style="width: 100%;")
-  ToolbarBtn(
-    v-if='SELECTED'
-    :active='menu.block'
-    @click="menu.block = !menu.block"
-    icon='settings' title='Layout settings')
-  ToolbarBtn(
-    v-if='!SELECTED'
-    :active='menu.widgets'
-    @click="menu.widgets = !menu.widgets"
-    icon='stars' title='Web settings')
-  ToolbarBtn(
-    v-if='!SELECTED'
-    :active='menu.add'
-    @click="menu.add = !menu.add"
-    icon='plus' title='Add block')
+  //- ToolbarBtn(
+  //-   v-if='!SELECTED'
+  //-   :active='menu.widgets'
+  //-   @click="menu.widgets = !menu.widgets"
+  //-   icon='stars' title='Web settings')
+  //- ToolbarBtn(
+  //-   v-if='!SELECTED'
+  //-   :active='menu.add'
+  //-   @click="menu.add = !menu.add"
+  //-   icon='plus' title='Add block')
   PageProps(v-if='!SELECTED').toolbar_block
 
+  ToolbarBtn(
+    :active='settingsIsOpen'
+    @click="settingsIsOpen = !settingsIsOpen"
+    icon='settings' title='Settings')
   ToolbarBtn(
     :active='SCREEN === "decktop"'
     @click="SET_SCREEN(1400)"
@@ -34,8 +33,8 @@
   ToolbarBtn(
     @click="SET_SCREEN()"
     icon='minimize' title='Auto detect screen')
-.toolbar_menu
-  SelectedBlock(v-if='menu.block && SELECTED')
+.toolbar_menu(v-if='settingsIsOpen')
+  SelectedBlock(v-if='SELECTED')
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";
@@ -49,13 +48,7 @@ import { ScreenStoreHelper } from "../../../store/modules/screen";
 const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = ConfigStoreHelper();
 const { SCREEN, SET_SCREEN } = ScreenStoreHelper();
 
-const menu = ref({
-  block: false,
-  page: false,
-  global: false,
-  widgets: false,
-  add: false,
-});
+const settingsIsOpen = ref(false);
 
 const showedMenu = ref<string | null>(null);
 const selectMenu = (name: string) => {
@@ -73,28 +66,32 @@ const keydownHandlers: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].y = +SELECTED.value[SCREEN.value].y - 1;
+        SELECTED.value[SCREEN.value].grid.y =
+          +SELECTED.value[SCREEN.value].grid.y - 1;
     },
   },
   ArrowDown: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].y = +SELECTED.value[SCREEN.value].y + 1;
+        SELECTED.value[SCREEN.value].grid.y =
+          +SELECTED.value[SCREEN.value].grid.y + 1;
     },
   },
   ArrowLeft: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].x = +SELECTED.value[SCREEN.value].x - 1;
+        SELECTED.value[SCREEN.value].grid.x =
+          +SELECTED.value[SCREEN.value].grid.x - 1;
     },
   },
   ArrowRight: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].x = +SELECTED.value[SCREEN.value].x + 1;
+        SELECTED.value[SCREEN.value].grid.x =
+          +SELECTED.value[SCREEN.value].grid.x + 1;
     },
   },
   Delete: {
@@ -123,12 +120,12 @@ const keydownHandlers: {
       window.navigator.clipboard.readText().then((res) => {
         const copy = JSON.parse(res);
         SET_SELECTED_BLOCK(copy);
-        SELECTED.value.decktop.y += 1;
-        SELECTED.value.decktop.x += 1;
-        SELECTED.value.tablet.y += 1;
-        SELECTED.value.tablet.x += 1;
-        SELECTED.value.mobile.y += 1;
-        SELECTED.value.mobile.x += 1;
+        SELECTED.value.decktop.grid.y += 1;
+        SELECTED.value.decktop.grid.x += 1;
+        SELECTED.value.tablet.grid.y += 1;
+        SELECTED.value.tablet.grid.x += 1;
+        SELECTED.value.mobile.grid.y += 1;
+        SELECTED.value.mobile.grid.x += 1;
         BLOCKS.value.push(copy);
       });
     },

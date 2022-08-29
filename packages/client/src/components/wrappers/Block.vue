@@ -21,7 +21,13 @@ const props = defineProps({
 
 const style = computed(() => {
   if (props.config) {
-    const result: Record<string, unknown> = { ...props.config.style };
+    const result: Record<string, unknown> = {
+      background: props.config.style.background,
+      borderColor: props.config.style.borderColor,
+      borderRadius: props.config.style.borderRadius + "px",
+      borderStyle: props.config.style.borderStyle,
+      borderWidth: props.config.style.borderWidth + "px",
+    };
     const area = props.config[SCREEN.value];
     result.gridArea = `${area.y} / ${area.x} / ${+area.y + +area.h} / ${
       +area.x + +area.w

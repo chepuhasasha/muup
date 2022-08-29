@@ -6,14 +6,14 @@
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { ConfigStoreHelper } from "@/store/modules/config";
-import config from "./testpage.json";
+import config from "../testpage.json";
 
 const route = useRoute();
 const pageName = ref<string | string[]>();
-const { SET, BLOCKS, GRID } = ConfigStoreHelper();
+const { SET_PAGE, BLOCKS, GRID, PAGE } = ConfigStoreHelper();
 
 onMounted(() => {
-  SET(config);
+  SET_PAGE(config);
   pageName.value = route.params.name;
 });
 
@@ -25,6 +25,7 @@ const getPageStyle = computed(() => {
         100 / GRID.value.cols
       }%)`,
       gap: `${GRID.value.gap}px`,
+      background: PAGE.value.background,
     };
   }
   return {};

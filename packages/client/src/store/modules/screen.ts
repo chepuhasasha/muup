@@ -14,15 +14,17 @@ export const screen: Module<IScreenState, State> = {
     SCREEN: (state) => state.screen,
   },
   mutations: {
-    SET_SCREEN_MODE(state, size: number) {
-      if (size <= 800) state.screen = "mobile";
-      else if (size <= 1300 && size > 800) state.screen = "tablet";
+    SET_SCREEN(state, size?: number) {
+      let width = window.innerWidth;
+      if (size) width = size;
+      if (width <= 800) state.screen = "mobile";
+      else if (width <= 1300 && width > 800) state.screen = "tablet";
       else state.screen = "decktop";
     },
   },
   actions: {
-    setScreenMode({ commit }, size: number) {
-      commit("SET_SCREEN_MODE", size);
+    setScreen({ commit }, size?: number) {
+      commit("SET_SCREEN", size);
     },
   },
 };
@@ -31,6 +33,6 @@ export function ScreenStoreHelper() {
   const STORE = useStore(key);
   return {
     SCREEN: computed<IScreenState["screen"]>(() => STORE.getters.SCREEN),
-    SET: (size: number) => STORE.dispatch("setScreenMode", size),
+    SET_SCREEN: (size?: number) => STORE.dispatch("setScreen", size),
   };
 }

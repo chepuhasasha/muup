@@ -21,7 +21,8 @@
         "padding_bottom": 20,
         "padding_left": 20,
         "padding_right": 20,
-        "gap": 10
+        "gap": 10,
+        "zIndex": 0
       },
       "tablet": {
         "x": 1,
@@ -33,7 +34,8 @@
         "padding_bottom": 20,
         "padding_left": 20,
         "padding_right": 20,
-        "gap": 10
+        "gap": 10,
+        "zIndex": 0
       },
       "mobile": {
         "x": 1,
@@ -45,10 +47,15 @@
         "padding_bottom": 20,
         "padding_left": 20,
         "padding_right": 20,
-        "gap": 10
+        "gap": 10,
+        "zIndex": "0"
       },
       "style": {
-        "background": "rgb(var(--contrast_200))"
+        "background": "#ffffff",
+        "borderColor": "#ff00ff",
+        "borderWidth": 2,
+        "borderStyle": "dashed",
+        "borderRadius": 20
       },
       "widgets": [
         {

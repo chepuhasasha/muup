@@ -22,7 +22,7 @@ const props = defineProps({
   justify-content: center
   background: #171822
   &:hover, &_active
-    background: #189EFF
+    background: #1E1F29
     path
       stroke: white
 </style>

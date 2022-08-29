@@ -13,6 +13,7 @@ export interface BlockConfig {
     padding_left: number;
     padding_right: number;
     gap: number;
+    zIndex: number;
   };
   tablet: {
     x: number;
@@ -25,6 +26,7 @@ export interface BlockConfig {
     padding_left: number;
     padding_right: number;
     gap: number;
+    zIndex: number;
   };
   mobile: {
     x: number;
@@ -37,13 +39,14 @@ export interface BlockConfig {
     padding_left: number;
     padding_right: number;
     gap: number;
+    zIndex: number;
   };
   style: {
     background: string;
-    padding_top: number;
-    padding_bottom: number;
-    padding_left: number;
-    padding_right: number;
+    borderColor: string;
+    borderWidth: number;
+    borderStyle: string;
+    borderRadius: number;
   };
   widgets: WidgetConfig[];
 }

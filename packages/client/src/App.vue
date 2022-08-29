@@ -10,15 +10,12 @@ import { ScreenStoreHelper } from "./store/modules/screen";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
-const SCREEN = ScreenStoreHelper();
+const { SET_SCREEN } = ScreenStoreHelper();
 const { SET_SITE, SET_THEME } = ConfigStoreHelper();
 
-const resize = () => {
-  SCREEN.SET(window.innerWidth);
-};
 onMounted(() => {
-  SCREEN.SET(window.innerWidth);
-  window.addEventListener("resize", resize);
+  SET_SCREEN();
+  window.addEventListener("resize", () => SET_SCREEN());
   // router.push(site.home);
   SET_SITE(site);
   SET_THEME(site.active_theme);

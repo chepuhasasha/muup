@@ -3,7 +3,7 @@
   Input(type='number' label='COLS' v-model='GRID.cols' nobtn size='s')
   Input(type='number' label='ROWS' v-model='GRID.rows' nobtn size='s')
   Input(icon='gap' type='number' v-model='GRID.gap' nobtn size='s')
-  Input(type='color' label='BG' v-model='PAGE.background' nobtn size='s')
+  //- Input(type='color' label='BG' v-model='PAGE.background' nobtn size='s')
 
 </template>
 <script lang="ts" setup>

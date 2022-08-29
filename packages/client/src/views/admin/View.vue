@@ -9,7 +9,7 @@ import type { PageConfig } from "@/types/pageConfig";
 import { computed, onMounted, ref } from "vue";
 import { useRoute } from "vue-router";
 import { ConfigStoreHelper } from "@/store/modules/config";
-import config from "./testpage.json";
+import config from "../testpage.json";
 import { UserStoreHelper } from "@/store/modules/user";
 import { ScreenStoreHelper } from "@/store/modules/screen";
 import Toolbar from "./components/Toolbar.vue";

@@ -16,9 +16,10 @@ PropBlock(title='layout')
       v-for="(align, i) in aligment"
       pointer
       size="20px"
-      :style='{gridArea: align.area}' icon='target'
+      :style='{gridArea: align.area}' 
+      :icon='align.active ? "target" : "maximize"'
       @click='setAligment(align.p[0], align.p[1])' 
-      :color='align.active ? "#189EFF" : "white"')
+      :color='align.active ? "#189EFF" : "rgba(255,255,255,0.4)"')
   span(:style='{gridArea: "2 / 2 / 3 / 3"}') {{ screenMode.layout.direction }}
   Input(:style='{gridArea: "3 / 1 / 4 / 2"}' :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
   Button(:style='{gridArea: "3 / 2 / 4 / 3", width: "100%"}' size='s' @click='screenMode.layout.gap = null' :active='screenMode.layout.gap === null') auto

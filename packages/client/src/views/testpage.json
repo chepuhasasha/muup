@@ -38,6 +38,16 @@
             "start",
             "start"
           ]
+        },
+        "border": {
+          "width": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "color": "black",
+          "style": "solid"
         }
       },
       "tablet": {
@@ -67,6 +77,16 @@
             "start",
             "start"
           ]
+        },
+        "border": {
+          "width": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "color": "black",
+          "style": "solid"
         }
       },
       "mobile": {
@@ -96,13 +116,17 @@
             "start",
             "start"
           ]
+        },
+        "border": {
+          "width": [
+            2,
+            2,
+            2,
+            2
+          ],
+          "color": "black",
+          "style": "solid"
         }
-      },
-      "style": {
-        "background": "#ffffff",
-        "borderColor": "#ff00ff",
-        "borderWidth": 2,
-        "borderStyle": "dashed"
       },
       "widgets": [
         {

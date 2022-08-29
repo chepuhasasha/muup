@@ -28,6 +28,29 @@ PropBlock(title='layout')
   Input(:style='{gridArea: "4 / 2 / 5 / 3"}' type='number' icon='align_bottom' v-model='screenMode.layout.padding[2]' nobtn size='s')
   Input(:style='{gridArea: "5 / 1 / 6 / 2"}' type='number' icon='align_left' v-model='screenMode.layout.padding[3]' nobtn size='s')
   Button(size='s' :style='{gridArea: "6 / 1 / 7 / 5", width: "100%"}') apply to all screens
+//- BORDER
+PropBlock(title='border')
+  Input(
+    :style='{gridArea: "3 / 1 / 4 / 2"}'
+    v-model='screenMode.border.width[0]'
+    type="number" icon='border_top' size='s' nobtn)
+  Input(
+    :style='{gridArea: "3 / 2 / 4 / 3"}'
+    v-model='screenMode.border.width[1]'
+    type="number" icon='border_right' size='s' nobtn)
+  Input(
+    :style='{gridArea: "3 / 3 / 4 / 4"}'
+    v-model='screenMode.border.width[2]'
+    type="number" icon='border_bottom' size='s' nobtn)
+  Input(
+    :style='{gridArea: "3 / 4 / 4 / 5"}'
+    v-model='screenMode.border.width[3]'
+    type="number" icon='border_left' size='s' nobtn)
+  //- select(
+  //-   :style='{gridArea: "5 / 2 / 6 / 3"}'
+  //-   v-model='screenMode.border.left[1]')
+  //-   option solid
+  //-   option dashed
 //- FIGMA
 PropBlock(title='Figma')
   Input(:style='{gridArea: "2 / 1 / 3 / 5"}' v-model='screenMode.node' label='Key' size='s')

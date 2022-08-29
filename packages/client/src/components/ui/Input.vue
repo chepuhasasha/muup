@@ -81,7 +81,7 @@ const getClasses = computed(() => ({
     padding: 0
     border: none
     outline: none
-    font-family: var(--font_200)
+    font-family: Inter
     color: rgba(255,255,255, 0.6)
     width: 100%
 

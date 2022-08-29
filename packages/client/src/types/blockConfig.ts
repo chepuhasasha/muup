@@ -18,6 +18,8 @@ export interface ScreenMode {
     padding_left: number;
     padding_right: number;
     gap: number | null;
+    v: string;
+    h: string;
   };
 
   // x: number;

@@ -28,9 +28,9 @@ const props = defineProps({
 });
 
 const app = new PIXI.Application({
-  width: 500,
-  height: 500,
-  backgroundAlpha: 0,
+  width: 200,
+  height: 200,
+  // backgroundAlpha: 0,
   antialias: true,
 });
 const lines = new PIXI.Graphics();
@@ -71,6 +71,6 @@ onMounted(() => {
 </script>
 <style lang="sass">
 .mask
-  width: 100%
-  height: 100%
+  // width: 100%
+  // height: 100%
 </style>

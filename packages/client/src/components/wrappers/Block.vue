@@ -37,6 +37,15 @@ const style = computed(() => {
     result.paddingLeft = `${screen.layout.padding_left}px`;
     result.paddingRight = `${screen.layout.padding_right}px`;
     result.flexDirection = screen.layout.direction;
+
+    if (screen.layout.direction === "column") {
+      result.alignItems = screen.layout.h;
+      result.justifyContent = screen.layout.v;
+    } else {
+      result.alignItems = screen.layout.v;
+      result.justifyContent = screen.layout.h;
+    }
+
     if (screen.layout.gap) result.gap = screen.layout.gap + "px";
     else result.justifyContent = "space-between";
     return result;

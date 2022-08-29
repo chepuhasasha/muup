@@ -11,15 +11,42 @@ PropBlock(title='layout')
     Button(@click='screenMode.layout.direction = "row"' size='s' icon='right' :active='screenMode.layout.direction === "row"')
     Button(@click='screenMode.layout.direction = "column"' size='s' icon='down' :active='screenMode.layout.direction === "column"')
   .aligment
-    Button(:style='{gridArea: "1 / 1 / 2 / 2"}' icon='down' size='s')
-    Button(:style='{gridArea: "1 / 2 / 2 / 3"}' icon='down' size='s')
-    Button(:style='{gridArea: "1 / 3 / 2 / 4"}' icon='down' size='s')
-    Button(:style='{gridArea: "2 / 1 / 3 / 2"}' icon='down' size='s')
-    Button(:style='{gridArea: "2 / 2 / 3 / 3"}' icon='down' size='s')
-    Button(:style='{gridArea: "2 / 3 / 3 / 4"}' icon='down' size='s')
-    Button(:style='{gridArea: "3 / 1 / 4 / 2"}' icon='down' size='s')
-    Button(:style='{gridArea: "3 / 2 / 4 / 3"}' icon='down' size='s')
-    Button(:style='{gridArea: "3 / 3 / 4 / 4"}' icon='down' size='s')
+    Button(
+      :style='{gridArea: "1 / 1 / 2 / 2"}' icon='target' size='s'
+      @click='setAligment("start", "start")' 
+      :active='screenMode.layout.v === "start" && screenMode.layout.h === "start"')
+    Button(
+      :style='{gridArea: "1 / 2 / 2 / 3"}' icon='target' size='s'
+      @click='setAligment("start", "center")' 
+      :active='screenMode.layout.v === "start" && screenMode.layout.h === "center"')
+    Button(
+      :style='{gridArea: "1 / 3 / 2 / 4"}' icon='target' size='s'
+      @click='setAligment("start", "end")' 
+      :active='screenMode.layout.v === "start" && screenMode.layout.h === "end"')
+    Button(
+      :style='{gridArea: "2 / 1 / 3 / 2"}' icon='target' size='s'
+      @click='setAligment("center", "start")' 
+      :active='screenMode.layout.v === "center" && screenMode.layout.h === "start"')
+    Button(
+      :style='{gridArea: "2 / 2 / 3 / 3"}' icon='target' size='s' 
+      @click='setAligment("center", "center")' 
+      :active='screenMode.layout.v === "center" && screenMode.layout.h === "center"')
+    Button(
+      :style='{gridArea: "2 / 3 / 3 / 4"}' icon='target' size='s'
+      @click='setAligment("center", "end")' 
+      :active='screenMode.layout.v === "center" && screenMode.layout.h === "end"')
+    Button(
+      :style='{gridArea: "3 / 1 / 4 / 2"}' icon='target' size='s'
+      @click='setAligment("end", "start")' 
+      :active='screenMode.layout.v === "end" && screenMode.layout.h === "start"')
+    Button(
+      :style='{gridArea: "3 / 2 / 4 / 3"}' icon='target' size='s'
+      @click='setAligment("end", "center")' 
+      :active='screenMode.layout.v === "end" && screenMode.layout.h === "center"')
+    Button(
+      :style='{gridArea: "3 / 3 / 4 / 4"}' icon='target' size='s'
+      @click='setAligment("end", "end")' 
+      :active='screenMode.layout.v === "end" && screenMode.layout.h === "end"')
   span(:style='{gridArea: "2 / 2 / 3 / 3"}') {{ screenMode.layout.direction }}
   Input(:style='{gridArea: "3 / 1 / 4 / 2"}' :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
   Button(:style='{gridArea: "3 / 2 / 4 / 3", width: "100%"}' size='s' @click='screenMode.layout.gap = null' :active='screenMode.layout.gap === null') auto
@@ -41,13 +68,19 @@ PropBlock(title='Figma')
 </template>
 <script lang="ts" setup>
 import { ConfigStoreHelper } from "@/store/modules/config";
-import { computed } from "@vue/runtime-core";
+import { computed, onMounted } from "@vue/runtime-core";
 import { ScreenStoreHelper } from "../../../store/modules/screen";
 
 const { SELECTED } = ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
-
 const screenMode = computed(() => SELECTED.value[SCREEN.value]);
+
+const setAligment = (v: string, h: string) => {
+  if (screenMode.value) {
+    screenMode.value.layout.v = v;
+    screenMode.value.layout.h = h;
+  }
+};
 </script>
 <style lang="sass">
 .aligment

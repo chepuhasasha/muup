@@ -30,6 +30,7 @@ PropBlock(title='layout')
   Button(size='s' :style='{gridArea: "6 / 1 / 7 / 5", width: "100%"}') apply to all screens
 //- BORDER
 PropBlock(title='border')
+  Color(:style='{gridArea: "2 / 1 / 3 / 4"}')
   Input(
     :style='{gridArea: "3 / 1 / 4 / 2"}'
     v-model='screenMode.border.width[0]'

@@ -66,32 +66,32 @@ const keydownHandlers: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].grid.y =
-          +SELECTED.value[SCREEN.value].grid.y - 1;
+        SELECTED.value[SCREEN.value].grid.area[1] =
+          +SELECTED.value[SCREEN.value].grid.area[1] - 1;
     },
   },
   ArrowDown: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].grid.y =
-          +SELECTED.value[SCREEN.value].grid.y + 1;
+        SELECTED.value[SCREEN.value].grid.area[1] =
+          +SELECTED.value[SCREEN.value].grid.area[1] + 1;
     },
   },
   ArrowLeft: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].grid.x =
-          +SELECTED.value[SCREEN.value].grid.x - 1;
+        SELECTED.value[SCREEN.value].grid.area[0] =
+          +SELECTED.value[SCREEN.value].grid.area[0] - 1;
     },
   },
   ArrowRight: {
     ctrl: false,
     handler: (e: KeyboardEvent) => {
       if (SELECTED.value)
-        SELECTED.value[SCREEN.value].grid.x =
-          +SELECTED.value[SCREEN.value].grid.x + 1;
+        SELECTED.value[SCREEN.value].grid.area[0] =
+          +SELECTED.value[SCREEN.value].grid.area[0] + 1;
     },
   },
   Delete: {
@@ -120,12 +120,12 @@ const keydownHandlers: {
       window.navigator.clipboard.readText().then((res) => {
         const copy = JSON.parse(res);
         SET_SELECTED_BLOCK(copy);
-        SELECTED.value.decktop.grid.y += 1;
-        SELECTED.value.decktop.grid.x += 1;
-        SELECTED.value.tablet.grid.y += 1;
-        SELECTED.value.tablet.grid.x += 1;
-        SELECTED.value.mobile.grid.y += 1;
-        SELECTED.value.mobile.grid.x += 1;
+        SELECTED.value.decktop.grid.area[1] += 1;
+        SELECTED.value.decktop.grid.area[0] += 1;
+        SELECTED.value.tablet.grid.area[1] += 1;
+        SELECTED.value.tablet.grid.area[0] += 1;
+        SELECTED.value.mobile.grid.area[1] += 1;
+        SELECTED.value.mobile.grid.area[0] += 1;
         BLOCKS.value.push(copy);
       });
     },

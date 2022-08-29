@@ -150,6 +150,6 @@ const aligment = computed<
   grid-template-columns: repeat(3, 1fr)
   grid-template-rows: repeat(3, 1fr)
   grid-area: 2 / 3 / 6 / 5
-  align-items: stert
-  justify-items: center
+  // align-items: stert
+  justify-items: end
 </style>

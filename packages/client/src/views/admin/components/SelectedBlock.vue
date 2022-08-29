@@ -33,6 +33,7 @@ PropBlock(title='Figma')
   Input(:style='{gridArea: "2 / 1 / 3 / 5"}' v-model='screenMode.node' label='Key' size='s')
   Input(:style='{gridArea: "3 / 1 / 4 / 5"}' v-model='screenMode.node' label='Node ID' size='s')
   Button(:style='{gridArea: "4 / 1 / 5 / 5", width: "100%"}' size='s') Sync
+
 </template>
 <script lang="ts" setup>
 import { ConfigStoreHelper } from "@/store/modules/config";

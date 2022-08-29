@@ -29,15 +29,13 @@ const props = defineProps({
   align-items: center
   border-bottom: 2px solid #1E1F29
   span
-    font-family: var(--font_200)
+    font-family: Inter
     font-size: 12px
     color: rgba(255, 255, 255, 0.4)
   &_row
     display: flex
-    gap: 10px
-    // justify-content: end
   &_title
-    font-family: var(--font_200)
+    font-family: Inter
     color: rgba(255, 255, 255, 0.4)
     font-size: 12px
     font-weight: 600

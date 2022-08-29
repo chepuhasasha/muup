@@ -48,7 +48,7 @@ import { ScreenStoreHelper } from "../../../store/modules/screen";
 const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = ConfigStoreHelper();
 const { SCREEN, SET_SCREEN } = ScreenStoreHelper();
 
-const settingsIsOpen = ref(false);
+const settingsIsOpen = ref(true);
 
 const showedMenu = ref<string | null>(null);
 const selectMenu = (name: string) => {
@@ -155,7 +155,7 @@ document.addEventListener("keydown", keydown);
   background: #1E1F29
   padding-bottom: 2px
   width: 100%
-  height: max-content
+  min-height: 50px
 
   &_menu
     display: flex

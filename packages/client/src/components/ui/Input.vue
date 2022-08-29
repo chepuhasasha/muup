@@ -70,7 +70,8 @@ const getClasses = computed(() => ({
 
   &_label
     font-size: 12px
-    font-family: var(--font_200)
+    font-family: Inter
+    font-weight: 300
     color: rgba(255,255,255, 0.4)
     white-space: nowrap
 

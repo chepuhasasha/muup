@@ -10,20 +10,23 @@ PropBlock(title='layout')
   .prop_block_row(:style='{gridArea: "2 / 1 / 3 / 2"}')
     Button(@click='screenMode.layout.direction = "row"' size='s' icon='right' :active='screenMode.layout.direction === "row"')
     Button(@click='screenMode.layout.direction = "column"' size='s' icon='down' :active='screenMode.layout.direction === "column"')
-  Button(:style='{gridArea: "2 / 2 / 3 / 3"}' icon='down' size='s')
-  Button(:style='{gridArea: "2 / 3 / 3 / 4"}' icon='down' size='s')
-  Button(:style='{gridArea: "2 / 4 / 3 / 5"}' icon='down' size='s')
-  Button(:style='{gridArea: "3 / 2 / 4 / 3"}' icon='down' size='s')
-  Button(:style='{gridArea: "3 / 3 / 4 / 4"}' icon='down' size='s')
-  Button(:style='{gridArea: "3 / 4 / 4 / 5"}' icon='down' size='s')
-  Button(:style='{gridArea: "4 / 2 / 5 / 3"}' icon='down' size='s')
-  Button(:style='{gridArea: "4 / 3 / 5 / 4"}' icon='down' size='s')
-  Button(:style='{gridArea: "4 / 4 / 5 / 5"}' icon='down' size='s')
-  Input(:style='{gridArea: "3 / 1 / 4 / 3"}' :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
-  Input(:style='{gridArea: "5 / 1 / 6 / 2"}' type='number' icon='align_top' v-model='screenMode.layout.padding_top' nobtn size='s')
-  Input(:style='{gridArea: "5 / 2 / 6 / 3"}' type='number' icon='align_bottom' v-model='screenMode.layout.padding_bottom' nobtn size='s')
-  Input(:style='{gridArea: "5 / 3 / 6 / 4"}' type='number' icon='align_left' v-model='screenMode.layout.padding_left' nobtn size='s')
-  Input(:style='{gridArea: "5 / 4 / 6 / 5"}' type='number' icon='align_right' v-model='screenMode.layout.padding_right' nobtn size='s')
+  .aligment
+    Button(:style='{gridArea: "1 / 1 / 2 / 2"}' icon='down' size='s')
+    Button(:style='{gridArea: "1 / 2 / 2 / 3"}' icon='down' size='s')
+    Button(:style='{gridArea: "1 / 3 / 2 / 4"}' icon='down' size='s')
+    Button(:style='{gridArea: "2 / 1 / 3 / 2"}' icon='down' size='s')
+    Button(:style='{gridArea: "2 / 2 / 3 / 3"}' icon='down' size='s')
+    Button(:style='{gridArea: "2 / 3 / 3 / 4"}' icon='down' size='s')
+    Button(:style='{gridArea: "3 / 1 / 4 / 2"}' icon='down' size='s')
+    Button(:style='{gridArea: "3 / 2 / 4 / 3"}' icon='down' size='s')
+    Button(:style='{gridArea: "3 / 3 / 4 / 4"}' icon='down' size='s')
+  span(:style='{gridArea: "2 / 2 / 3 / 3"}') {{ screenMode.layout.direction }}
+  Input(:style='{gridArea: "3 / 1 / 4 / 2"}' :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
+  Button(:style='{gridArea: "3 / 2 / 4 / 3", width: "100%"}' size='s' @click='screenMode.layout.gap = null' :active='screenMode.layout.gap === null') auto
+  Input(:style='{gridArea: "4 / 1 / 5 / 2"}' type='number' icon='align_top' v-model='screenMode.layout.padding_top' nobtn size='s')
+  Input(:style='{gridArea: "4 / 2 / 5 / 3"}' type='number' icon='align_bottom' v-model='screenMode.layout.padding_bottom' nobtn size='s')
+  Input(:style='{gridArea: "5 / 1 / 6 / 2"}' type='number' icon='align_left' v-model='screenMode.layout.padding_left' nobtn size='s')
+  Input(:style='{gridArea: "5 / 2 / 6 / 3"}' type='number' icon='align_right' v-model='screenMode.layout.padding_right' nobtn size='s')
   Button(size='s' :style='{gridArea: "6 / 1 / 7 / 5", width: "100%"}') apply to all screens
 //- PropBlock(title='background')
 //-   Input(label='BG' type='color' v-model='SELECTED.style.background' nobtn size='s')
@@ -46,4 +49,18 @@ const { SCREEN } = ScreenStoreHelper();
 
 const screenMode = computed(() => SELECTED.value[SCREEN.value]);
 </script>
-<style lang="sass"></style>
+<style lang="sass">
+.aligment
+  display: grid
+  width: 100%
+  height: 100%
+  background: #1E1F29
+  grid-template-columns: repeat(3, 1fr)
+  grid-template-rows: repeat(3, 1fr)
+  grid-area: 2 / 3 / 6 / 5
+  align-items: center
+  justify-items: center
+  // border: 1px solid #189EFF
+  border-radius: 5px
+  padding: 5px
+</style>

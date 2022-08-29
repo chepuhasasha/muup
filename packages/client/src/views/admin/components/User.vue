@@ -19,7 +19,7 @@ const { USER } = UserStoreHelper();
     display: flex
     flex-direction: column
     *
-      font-family: var(--font_200)
+      font-family: Inter
   &_name
     color: rgba(255,255,255, 0.6)
     font-size: 12px

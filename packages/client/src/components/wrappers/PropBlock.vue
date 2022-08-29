@@ -34,6 +34,7 @@ const props = defineProps({
     color: rgba(255, 255, 255, 0.4)
   &_row
     display: flex
+    justify-content: space-between
   &_title
     font-family: Inter
     color: rgba(255, 255, 255, 0.4)

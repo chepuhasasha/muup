@@ -46,11 +46,10 @@ PropBlock(title='border')
     :style='{gridArea: "3 / 4 / 4 / 5"}'
     v-model='screenMode.border.width[3]'
     type="number" icon='border_left' size='s' nobtn)
-  //- select(
-  //-   :style='{gridArea: "5 / 2 / 6 / 3"}'
-  //-   v-model='screenMode.border.left[1]')
-  //-   option solid
-  //-   option dashed
+  .prop_block_row(:style='{gridArea: "2 / 4 / 3 / 5"}')
+    Button(@click='screenMode.border.style = "dashed"' size='s' icon='dashed' :active='screenMode.border.style === "dashed"')
+    Button(@click='screenMode.border.style = "solid"' size='s' icon='solid' :active='screenMode.border.style === "solid"')
+  
 //- FIGMA
 PropBlock(title='Figma')
   Input(:style='{gridArea: "2 / 1 / 3 / 5"}' v-model='screenMode.node' label='Key' size='s')

@@ -17,7 +17,7 @@
   Icon(
     pointer
     icon='cross'
-    size='10px'
+    size='14px'
     color='rgb(255,255,255)'
     v-if="modelValue && !nobtn"
     @click='$emit("update:modelValue", null)')
@@ -72,6 +72,7 @@ const getClasses = computed(() => ({
     font-size: 12px
     font-family: var(--font_200)
     color: rgba(255,255,255, 0.4)
+    white-space: nowrap
 
   input
     font-size: 12px

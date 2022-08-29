@@ -161,7 +161,7 @@ document.addEventListener("keydown", keydown);
     display: flex
     position: absolute
     overflow-y: auto
-    width: 250px
+    width: 300px
     flex-direction: column
     height: calc(100% - 50px)
     top: 50px

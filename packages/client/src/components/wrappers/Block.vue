@@ -24,7 +24,6 @@ const style = computed(() => {
     const result: Record<string, unknown> = {
       background: props.config.style.background,
       borderColor: props.config.style.borderColor,
-      borderRadius: props.config.style.borderRadius + "px",
       borderStyle: props.config.style.borderStyle,
       borderWidth: props.config.style.borderWidth + "px",
     };
@@ -32,6 +31,7 @@ const style = computed(() => {
     result.gridArea = `${screen.grid.y} / ${screen.grid.x} / ${
       +screen.grid.y + +screen.grid.h
     } / ${+screen.grid.x + +screen.grid.w}`;
+    result.borderRadius = screen.grid.borderRadius + "px";
     result.paddingTop = `${screen.layout.padding_top}px`;
     result.paddingBottom = `${screen.layout.padding_bottom}px`;
     result.paddingLeft = `${screen.layout.padding_left}px`;

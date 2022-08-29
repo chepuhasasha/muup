@@ -34,6 +34,7 @@ const mode = computed(() => {
   transition: all 0.2s linear
   display: flex
   align-items: center
+  justify-content: center
   width: max-content
   height: max-content
   outline: none
@@ -46,9 +47,10 @@ const mode = computed(() => {
   padding: 10px 14px
   gap: 14px
   border-radius: 4px
-  color: rgb(var(--contrast_200))
-  &:hover, &:focus, &_active
+  color: rgba(255,255,255,0.6)
+  &:hover, &_active
     background: #189EFF
+    color: rgba(255,255,255,1)
     // border: 1px solid rgb(var(--contrast_400))
     // color: rgb(var(--contrast_400))
   &_link
@@ -79,7 +81,7 @@ const mode = computed(() => {
     border-radius: 4px
     gap: 6px
     font-size: 12px
-    font-weight: 500
+    font-weight: 400
     border-width: 1px
     &:hover, &:focus
       border-width: 1px

@@ -1,6 +1,7 @@
 import { WidgetConfig } from "./widgetConfig";
 
 export interface ScreenMode {
+  node: string;
   classes: string[];
   grid: {
     x: number;
@@ -8,6 +9,7 @@ export interface ScreenMode {
     w: number;
     h: number;
     zIndex: number;
+    borderRadius: number;
   };
   layout: {
     direction: "column" | "row";

@@ -12,13 +12,15 @@
     {
       "tag": "div",
       "decktop": {
+        "node": "nodeId",
         "classes": [],
         "grid": {
           "x": 1,
           "y": 1,
           "w": 10,
           "h": 10,
-          "zIndex": 0
+          "zIndex": 0,
+          "borderRadius": 20
         },
         "layout": {
           "direction": "row",
@@ -30,13 +32,15 @@
         }
       },
       "tablet": {
+        "node": "nodeId",
         "classes": [],
         "grid": {
           "x": 1,
           "y": 1,
           "w": 10,
           "h": 10,
-          "zIndex": 0
+          "zIndex": 0,
+          "borderRadius": 20
         },
         "layout": {
           "direction": "row",
@@ -48,13 +52,15 @@
         }
       },
       "mobile": {
+        "node": "nodeId",
         "classes": [],
         "grid": {
           "x": 1,
           "y": 1,
           "w": 10,
           "h": 10,
-          "zIndex": 0
+          "zIndex": 0,
+          "borderRadius": 20
         },
         "layout": {
           "direction": "row",
@@ -69,8 +75,7 @@
         "background": "#ffffff",
         "borderColor": "#ff00ff",
         "borderWidth": 2,
-        "borderStyle": "dashed",
-        "borderRadius": 20
+        "borderStyle": "dashed"
       },
       "widgets": [
         {

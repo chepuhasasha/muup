@@ -20,13 +20,13 @@ const props = defineProps({
 <style lang="sass">
 .prop_block
   display: grid
-  grid-template-columns: 1fr 1fr
+  grid-template-columns: 1fr 1fr 1fr 1fr
   max-width: 100%
   grid-template-rows: repeat(2, max-content)
   padding: 20px
-  gap: 20px
+  gap: 10px
   background: #171822
-  // align-items: center
+  align-items: center
   border-bottom: 2px solid #1E1F29
   span
     font-family: var(--font_200)
@@ -41,5 +41,5 @@ const props = defineProps({
     color: rgba(255, 255, 255, 0.4)
     font-size: 12px
     font-weight: 600
-    grid-area: 1/1/2/3
+    grid-area: 1/1/2/5
 </style>

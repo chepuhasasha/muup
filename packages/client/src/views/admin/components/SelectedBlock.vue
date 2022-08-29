@@ -1,11 +1,11 @@
 <template lang="pug">
 PropBlock(title='grid')
-  Input(:style='{gridArea: "2 / 1 / 3 / 3"}' label='X' type='number' v-model='screenMode.grid.x' nobtn size='s')
-  Input(:style='{gridArea: "2 / 3 / 3 / 5"}' label='Y' type='number' v-model='screenMode.grid.y' nobtn size='s')
-  Input(:style='{gridArea: "3 / 1 / 4 / 3"}' label='W' type='number' v-model='screenMode.grid.w' nobtn size='s')
-  Input(:style='{gridArea: "3 / 3 / 4 / 5"}' label='H' type='number' v-model='screenMode.grid.h' nobtn size='s')
-  Input(:style='{gridArea: "4 / 1 / 5 / 3"}' icon="layout" type='number' v-model='screenMode.grid.zIndex' nobtn size='s')
-  Input(:style='{gridArea: "4 / 3 / 5 / 5"}' icon="maximize" type='number' v-model='screenMode.grid.borderRadius' nobtn size='s')
+  Input(:style='{gridArea: "1 / 4 / 2 / 5"}' icon="layout" type='number' v-model='screenMode.grid.zIndex' nobtn size='s')
+  Input(:style='{gridArea: "2 / 1 / 3 / 2"}' label='X' type='number' v-model='screenMode.grid.x' nobtn size='s')
+  Input(:style='{gridArea: "2 / 2 / 3 / 3"}' label='Y' type='number' v-model='screenMode.grid.y' nobtn size='s')
+  Input(:style='{gridArea: "2 / 3 / 3 / 4"}' label='W' type='number' v-model='screenMode.grid.w' nobtn size='s')
+  Input(:style='{gridArea: "2 / 4 / 3 / 5"}' label='H' type='number' v-model='screenMode.grid.h' nobtn size='s')
+  //- Input(:style='{gridArea: "4 / 3 / 5 / 5"}' icon="maximize" type='number' v-model='screenMode.grid.borderRadius' nobtn size='s')
 PropBlock(title='layout')
   .prop_block_row(:style='{gridArea: "2 / 1 / 3 / 2"}')
     Button(@click='screenMode.layout.direction = "row"' size='s' icon='right' :active='screenMode.layout.direction === "row"')
@@ -87,13 +87,9 @@ const setAligment = (v: string, h: string) => {
   display: grid
   width: 100%
   height: 100%
-  background: #1E1F29
   grid-template-columns: repeat(3, 1fr)
   grid-template-rows: repeat(3, 1fr)
   grid-area: 2 / 3 / 6 / 5
-  align-items: center
+  align-items: stert
   justify-items: center
-  // border: 1px solid #189EFF
-  border-radius: 5px
-  padding: 5px
 </style>

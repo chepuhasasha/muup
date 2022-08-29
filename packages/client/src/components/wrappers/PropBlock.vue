@@ -38,6 +38,6 @@ const props = defineProps({
     font-family: Inter
     color: rgba(255, 255, 255, 0.4)
     font-size: 12px
-    font-weight: 600
+    font-weight: 500
     grid-area: 1/1/2/5
 </style>

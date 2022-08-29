@@ -39,8 +39,7 @@ const mode = computed(() => {
   height: max-content
   outline: none
   cursor: pointer
-  font-family: var(--font_200)
-  font-weight: 500
+  font-family: Inter
   font-size: 16px
   background: #1E1F29
   border: 1px solid #1E1F29

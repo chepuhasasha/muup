@@ -15,66 +15,87 @@
         "node": "nodeId",
         "classes": [],
         "grid": {
-          "x": 1,
-          "y": 1,
-          "w": 10,
-          "h": 10,
+          "area": [
+            1,
+            1,
+            10,
+            10,
+            1
+          ],
           "zIndex": 0,
           "borderRadius": 20
         },
         "layout": {
           "direction": "row",
-          "padding_top": 20,
-          "padding_bottom": 20,
-          "padding_left": 20,
-          "padding_right": 20,
+          "padding": [
+            20,
+            20,
+            20,
+            20
+          ],
           "gap": "80",
-          "v": "end",
-          "h": "end"
+          "aligment": [
+            "start",
+            "start"
+          ]
         }
       },
       "tablet": {
         "node": "nodeId",
         "classes": [],
         "grid": {
-          "x": 1,
-          "y": 1,
-          "w": 10,
-          "h": "14",
+          "area": [
+            1,
+            1,
+            10,
+            10,
+            1
+          ],
           "zIndex": 0,
           "borderRadius": 20
         },
         "layout": {
           "direction": "column",
-          "padding_top": 20,
-          "padding_bottom": 20,
-          "padding_left": 20,
-          "padding_right": 20,
+          "padding": [
+            20,
+            20,
+            20,
+            20
+          ],
           "gap": null,
-          "v": "start",
-          "h": "start"
+          "aligment": [
+            "start",
+            "start"
+          ]
         }
       },
       "mobile": {
         "node": "nodeId",
         "classes": [],
         "grid": {
-          "x": 1,
-          "y": 1,
-          "w": 10,
-          "h": 10,
+          "area": [
+            1,
+            1,
+            10,
+            10,
+            1
+          ],
           "zIndex": 0,
           "borderRadius": 20
         },
         "layout": {
           "direction": "row",
-          "padding_top": 20,
-          "padding_bottom": 20,
-          "padding_left": 20,
-          "padding_right": 20,
+          "padding": [
+            20,
+            20,
+            20,
+            20
+          ],
           "gap": 10,
-          "v": "center",
-          "h": "center"
+          "aligment": [
+            "start",
+            "start"
+          ]
         }
       },
       "style": {

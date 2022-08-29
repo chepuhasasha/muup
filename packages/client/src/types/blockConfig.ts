@@ -4,22 +4,14 @@ export interface ScreenMode {
   node: string;
   classes: string[];
   grid: {
-    x: number;
-    y: number;
-    w: number;
-    h: number;
-    zIndex: number;
+    area: [number, number, number, number, number];
     borderRadius: number;
   };
   layout: {
     direction: "column" | "row";
-    padding_top: number;
-    padding_bottom: number;
-    padding_left: number;
-    padding_right: number;
+    padding: [number, number, number, number];
+    aligment: [string, string];
     gap: number | null;
-    v: string;
-    h: string;
   };
 
   // x: number;

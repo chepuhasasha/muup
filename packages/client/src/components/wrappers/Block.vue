@@ -28,23 +28,20 @@ const style = computed(() => {
       borderWidth: props.config.style.borderWidth + "px",
     };
     const screen = props.config[SCREEN.value];
-    result.gridArea = `${screen.grid.y} / ${screen.grid.x} / ${
-      +screen.grid.y + +screen.grid.h
-    } / ${+screen.grid.x + +screen.grid.w}`;
+    result.gridArea = `${screen.grid.area[1]} / ${screen.grid.area[0]} / ${
+      +screen.grid.area[1] + +screen.grid.area[3]
+    } / ${+screen.grid.area[0] + +screen.grid.area[2]}`;
+    result.zIndex = screen.grid.area[4];
     result.borderRadius = screen.grid.borderRadius + "px";
-    result.paddingTop = `${screen.layout.padding_top}px`;
-    result.paddingBottom = `${screen.layout.padding_bottom}px`;
-    result.paddingLeft = `${screen.layout.padding_left}px`;
-    result.paddingRight = `${screen.layout.padding_right}px`;
+    result.padding = `${screen.layout.padding[0]}px ${screen.layout.padding[1]}px ${screen.layout.padding[2]}px ${screen.layout.padding[3]}px`;
     result.flexDirection = screen.layout.direction;
-    result.zIndex = screen.grid.zIndex;
 
     if (screen.layout.direction === "column") {
-      result.alignItems = screen.layout.h;
-      result.justifyContent = screen.layout.v;
+      result.alignItems = screen.layout.aligment[1];
+      result.justifyContent = screen.layout.aligment[0];
     } else {
-      result.alignItems = screen.layout.v;
-      result.justifyContent = screen.layout.h;
+      result.alignItems = screen.layout.aligment[0];
+      result.justifyContent = screen.layout.aligment[1];
     }
 
     if (screen.layout.gap) result.gap = screen.layout.gap + "px";

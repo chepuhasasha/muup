@@ -15,6 +15,7 @@ const props = defineProps({
 </script>
 <style lang="sass">
 .toolbar_btn
+  cursor: pointer
   position: relative
   display: flex
   min-width: 48px
@@ -22,6 +23,7 @@ const props = defineProps({
   justify-content: center
   background: #171822
   &:hover, &_active
+    border-bottom: 2px solid #189EFF
     background: #1E1F29
     path
       stroke: white

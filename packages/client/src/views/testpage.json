@@ -12,43 +12,58 @@
     {
       "tag": "div",
       "decktop": {
-        "x": 1,
-        "y": 1,
-        "w": 10,
-        "h": 10,
-        "direction": "row",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "padding_left": 20,
-        "padding_right": 20,
-        "gap": 10,
-        "zIndex": 0
+        "classes": [],
+        "grid": {
+          "x": 1,
+          "y": 1,
+          "w": 10,
+          "h": 10,
+          "zIndex": 0
+        },
+        "layout": {
+          "direction": "row",
+          "padding_top": 20,
+          "padding_bottom": 20,
+          "padding_left": 20,
+          "padding_right": 20,
+          "gap": 10
+        }
       },
       "tablet": {
-        "x": 1,
-        "y": 1,
-        "w": 10,
-        "h": 10,
-        "direction": "row",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "padding_left": 20,
-        "padding_right": 20,
-        "gap": 10,
-        "zIndex": 0
+        "classes": [],
+        "grid": {
+          "x": 1,
+          "y": 1,
+          "w": 10,
+          "h": 10,
+          "zIndex": 0
+        },
+        "layout": {
+          "direction": "row",
+          "padding_top": 20,
+          "padding_bottom": 20,
+          "padding_left": 20,
+          "padding_right": 20,
+          "gap": 10
+        }
       },
       "mobile": {
-        "x": 1,
-        "y": 1,
-        "w": 10,
-        "h": 10,
-        "direction": "row",
-        "padding_top": 20,
-        "padding_bottom": 20,
-        "padding_left": 20,
-        "padding_right": 20,
-        "gap": 10,
-        "zIndex": "0"
+        "classes": [],
+        "grid": {
+          "x": 1,
+          "y": 1,
+          "w": 10,
+          "h": 10,
+          "zIndex": 0
+        },
+        "layout": {
+          "direction": "row",
+          "padding_top": 20,
+          "padding_bottom": 20,
+          "padding_left": 20,
+          "padding_right": 20,
+          "gap": 10
+        }
       },
       "style": {
         "background": "#ffffff",

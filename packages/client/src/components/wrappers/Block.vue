@@ -28,16 +28,16 @@ const style = computed(() => {
       borderStyle: props.config.style.borderStyle,
       borderWidth: props.config.style.borderWidth + "px",
     };
-    const area = props.config[SCREEN.value];
-    result.gridArea = `${area.y} / ${area.x} / ${+area.y + +area.h} / ${
-      +area.x + +area.w
-    }`;
-    result.paddingTop = `${area.padding_top}px`;
-    result.paddingBottom = `${area.padding_bottom}px`;
-    result.paddingLeft = `${area.padding_left}px`;
-    result.paddingRight = `${area.padding_right}px`;
-    result.flexDirection = area.direction;
-    result.gap = area.gap + "px";
+    const screen = props.config[SCREEN.value];
+    result.gridArea = `${screen.grid.y} / ${screen.grid.x} / ${
+      +screen.grid.y + +screen.grid.h
+    } / ${+screen.grid.x + +screen.grid.w}`;
+    result.paddingTop = `${screen.layout.padding_top}px`;
+    result.paddingBottom = `${screen.layout.padding_bottom}px`;
+    result.paddingLeft = `${screen.layout.padding_left}px`;
+    result.paddingRight = `${screen.layout.padding_right}px`;
+    result.flexDirection = screen.layout.direction;
+    result.gap = screen.layout.gap + "px";
     return result;
   }
   return {};

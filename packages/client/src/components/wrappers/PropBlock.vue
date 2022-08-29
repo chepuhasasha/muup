@@ -22,11 +22,12 @@ const props = defineProps({
   display: grid
   grid-template-columns: 1fr 1fr
   max-width: 100%
-  grid-template-rows: repeat(2, 27px)
+  grid-template-rows: repeat(2, max-content)
   padding: 20px
-  gap: 10px
+  gap: 20px
   background: #171822
-  align-items: center
+  // align-items: center
+  border-bottom: 2px solid #1E1F29
   span
     font-family: var(--font_200)
     font-size: 12px
@@ -34,7 +35,7 @@ const props = defineProps({
   &_row
     display: flex
     gap: 10px
-    justify-content: end
+    // justify-content: end
   &_title
     font-family: var(--font_200)
     color: rgba(255, 255, 255, 0.4)

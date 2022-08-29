@@ -75,7 +75,7 @@ const getClasses = computed(() => ({
 
   input
     font-size: 12px
-    background: #1E1F29
+    background: none
     padding: 0
     border: none
     outline: none
@@ -98,8 +98,9 @@ const getClasses = computed(() => ({
       border-radius: 4px
       padding: 4px 8px
   &_s
-    padding: 6px
-    gap: 6px
+    padding: 0
+    gap: 10px
+    background: none
   &_m
     padding: 10px
     gap: 10px

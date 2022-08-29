@@ -156,6 +156,7 @@ document.addEventListener("keydown", keydown);
   display: flex
   gap: 2px
   background: #1E1F29
+  padding-bottom: 2px
   width: 100%
   height: max-content
 
@@ -163,16 +164,13 @@ document.addEventListener("keydown", keydown);
     display: flex
     position: absolute
     overflow-y: auto
-    width: 248px
+    width: 250px
     flex-direction: column
-    max-height: calc(100% - 48px)
-    height: max-content
-    top: 48px
+    height: calc(100% - 50px)
+    top: 50px
     right: 0
-    background: #1E1F29
+    background: #171822
     z-index: 9999
-    padding: 2px
-    gap: 2px
   &_block
     background: #171822
     display: flex

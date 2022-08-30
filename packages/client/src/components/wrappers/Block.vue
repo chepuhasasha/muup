@@ -2,7 +2,7 @@
 component.block(
   :is='config?.tag' 
   :style='style'
-  @click="SET_SELECTED_BLOCK(config)" 
+  @click="select" 
   :class='{block_unselected: config !== SELECTED && SELECTED}') 
   component(v-for='widget in config?.widgets' :is='widget.type' v-bind='widget.props') 
 </template>
@@ -18,6 +18,12 @@ const { SET_SELECTED_BLOCK, SELECTED } = ConfigStoreHelper();
 const props = defineProps({
   config: { type: Object as PropType<BlockConfig>, require: true },
 });
+
+const select = () => {
+  if (props.config && SELECTED.value != props.config)
+    SET_SELECTED_BLOCK(props.config);
+  else SET_SELECTED_BLOCK(null);
+};
 
 const style = computed(() => {
   const result: Record<string, unknown> = {};

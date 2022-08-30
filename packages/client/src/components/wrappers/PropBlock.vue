@@ -43,6 +43,7 @@ const props = defineProps({
     align-items: center
   .prop_block_flex
     display: flex
+    gap: 10px
     flex-direction: column
   .prop_block_title
     display: flex

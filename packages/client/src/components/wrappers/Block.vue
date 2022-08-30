@@ -1,6 +1,5 @@
 <template lang="pug">
 component.block(
-  tabindex="0"
   :is='config?.tag' 
   :style='style'
   @click="SET_SELECTED_BLOCK(config)" 

@@ -48,6 +48,7 @@ const focus = ref(false);
 const onfocus = (val: boolean) => {
   focus.value = val;
   emit("focus", val);
+  if (!val) emit("blur");
 };
 const getClasses = computed(() => ({
   [`input_${props.size}`]: true,

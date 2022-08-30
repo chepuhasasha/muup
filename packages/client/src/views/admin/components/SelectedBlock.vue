@@ -1,14 +1,14 @@
 <template lang="pug">
 //- GRID
 PropBlock(title='grid')
-  Input(:style='{gridArea: "1 / 4 / 2 / 5"}' icon="layout" type='number' v-model='screenMode.grid.area[4]' nobtn size='s')
-  Input(:style='{gridArea: "2 / 1 / 3 / 2"}' label='X' type='number' v-model='screenMode.grid.area[0]' nobtn size='s')
-  Input(:style='{gridArea: "2 / 2 / 3 / 3"}' label='Y' type='number' v-model='screenMode.grid.area[1]' nobtn size='s')
-  Input(:style='{gridArea: "2 / 3 / 3 / 4"}' label='W' type='number' v-model='screenMode.grid.area[2]' nobtn size='s')
-  Input(:style='{gridArea: "2 / 4 / 3 / 5"}' label='H' type='number' v-model='screenMode.grid.area[3]' nobtn size='s')
+  Input(v-area="'1/4/2/5'" icon="layout" type='number' v-model='screenMode.grid.area[4]' nobtn size='s')
+  Input(v-area="'2/1/3/2'" label='X' type='number' v-model='screenMode.grid.area[0]' nobtn size='s')
+  Input(v-area="'2/2/3/3'" label='Y' type='number' v-model='screenMode.grid.area[1]' nobtn size='s')
+  Input(v-area="'2/3/3/4'" label='W' type='number' v-model='screenMode.grid.area[2]' nobtn size='s')
+  Input(v-area="'2/4/3/5'" label='H' type='number' v-model='screenMode.grid.area[3]' nobtn size='s')
 //- LAYOUT
 PropBlock(title='layout')
-  .prop_block_row(:style='{gridArea: "2 / 1 / 3 / 2"}')
+  .prop_block_row(v-area="'2/1/3/2'")
     Button(@click='screenMode.layout.direction = "row"' size='s' icon='right' :active='screenMode.layout.direction === "row"')
     Button(@click='screenMode.layout.direction = "column"' size='s' icon='down' :active='screenMode.layout.direction === "column"')
   .aligment
@@ -20,42 +20,63 @@ PropBlock(title='layout')
       :icon='align.active ? "target" : "maximize"'
       @click='setAligment(align.p[0], align.p[1])' 
       :color='align.active ? "#189EFF" : "rgba(255,255,255,0.4)"')
-  span(:style='{gridArea: "2 / 2 / 3 / 3"}') {{ screenMode.layout.direction }}
-  Input(:style='{gridArea: "3 / 1 / 4 / 2"}' :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
-  Button(:style='{gridArea: "3 / 2 / 4 / 3", width: "100%"}' size='s' @click='screenMode.layout.gap = null' :active='screenMode.layout.gap === null') auto
-  Input(:style='{gridArea: "4 / 1 / 5 / 2"}' type='number' icon='align_top' v-model='screenMode.layout.padding[0]' nobtn size='s')
-  Input(:style='{gridArea: "5 / 2 / 6 / 3"}' type='number' icon='align_right' v-model='screenMode.layout.padding[1]' nobtn size='s')
-  Input(:style='{gridArea: "4 / 2 / 5 / 3"}' type='number' icon='align_bottom' v-model='screenMode.layout.padding[2]' nobtn size='s')
-  Input(:style='{gridArea: "5 / 1 / 6 / 2"}' type='number' icon='align_left' v-model='screenMode.layout.padding[3]' nobtn size='s')
-  Button(size='s' :style='{gridArea: "6 / 1 / 7 / 5", width: "100%"}') apply to all screens
+  span(v-area="'2/2/3/3'") {{ screenMode.layout.direction }}
+  Input(v-area="'3/1/4/2'" :icon='screenMode.layout.direction === "row" ? "width" : "height"' type='number' v-model='screenMode.layout.gap' nobtn size='s')
+  Button(v-area="'3/2/4/3'" size='s' @click='screenMode.layout.gap = null' :active='screenMode.layout.gap === null') auto
+  Input(v-area="'4/1/5/2'" type='number' icon='align_top' v-model='screenMode.layout.padding[0]' nobtn size='s')
+  Input(v-area="'5/2/6/3'" type='number' icon='align_right' v-model='screenMode.layout.padding[1]' nobtn size='s')
+  Input(v-area="'4/2/5/3'" type='number' icon='align_bottom' v-model='screenMode.layout.padding[2]' nobtn size='s')
+  Input(v-area="'5/1/6/2'" type='number' icon='align_left' v-model='screenMode.layout.padding[3]' nobtn size='s')
+  Button(v-area="'6/1/7/5'" v-w="'100%'" size='s') apply to all screens
 //- BORDER
 PropBlock(title='border')
-  Color(:style='{gridArea: "2 / 1 / 3 / 4"}')
+  Icon(
+    v-area="'1/4/2/5'"
+    v-justify-self="'end'"
+    :icon='screenMode.border ? "solid" : "plus"'
+    pointer @click="setBorder()")
+  Color(
+    v-if='screenMode.border'
+    v-area="'2/1/3/4'"
+    v-model='screenMode.border.color')
   Input(
-    :style='{gridArea: "3 / 1 / 4 / 2"}'
+    v-if='screenMode.border'
+    v-area="'3/1/4/2'"
     v-model='screenMode.border.width[0]'
     type="number" icon='border_top' size='s' nobtn)
   Input(
-    :style='{gridArea: "3 / 2 / 4 / 3"}'
+    v-if='screenMode.border'
+    v-area="'3/2/4/3'"
     v-model='screenMode.border.width[1]'
     type="number" icon='border_right' size='s' nobtn)
   Input(
-    :style='{gridArea: "3 / 3 / 4 / 4"}'
+    v-if='screenMode.border'
+    v-area="'3/3/4/4'"
     v-model='screenMode.border.width[2]'
     type="number" icon='border_bottom' size='s' nobtn)
   Input(
-    :style='{gridArea: "3 / 4 / 4 / 5"}'
+    v-if='screenMode.border'
+    v-area="'3/4/4/5'"
     v-model='screenMode.border.width[3]'
     type="number" icon='border_left' size='s' nobtn)
-  .prop_block_row(:style='{gridArea: "2 / 4 / 3 / 5"}')
-    Button(@click='screenMode.border.style = "dashed"' size='s' icon='dashed' :active='screenMode.border.style === "dashed"')
-    Button(@click='screenMode.border.style = "solid"' size='s' icon='solid' :active='screenMode.border.style === "solid"')
+  .prop_block_row(v-area="'2/4/3/5'")
+    Button(
+      v-if='screenMode.border' 
+      @click='screenMode.border.style = "dashed"'
+      size='s' icon='dashed'
+      :active='screenMode.border.style === "dashed"')
+    Button(
+      v-if='screenMode.border'
+      @click='screenMode.border.style = "solid"'
+      size='s' icon='solid'
+      :active='screenMode.border.style === "solid"')
+  Button(v-area="'4/1/5/5'" v-w="'100%'" size='s') apply to all screens
   
 //- FIGMA
 PropBlock(title='Figma')
-  Input(:style='{gridArea: "2 / 1 / 3 / 5"}' v-model='screenMode.node' label='Key' size='s')
-  Input(:style='{gridArea: "3 / 1 / 4 / 5"}' v-model='screenMode.node' label='Node ID' size='s')
-  Button(:style='{gridArea: "4 / 1 / 5 / 5", width: "100%"}' size='s') Sync
+  Input(v-area="'2/1/3/5'" v-model='screenMode.node' label='Key' size='s')
+  Input(v-area="'3/1/4/5'" v-model='screenMode.node' label='Node ID' size='s')
+  Button(v-area="'4/1/5/5'" size='s') Sync
 
 </template>
 <script lang="ts" setup>
@@ -72,6 +93,16 @@ const setAligment = (v: string, h: string) => {
     screenMode.value.layout.aligment[0] = v;
     screenMode.value.layout.aligment[1] = h;
   }
+};
+
+const setBorder = () => {
+  if (screenMode.value.border) screenMode.value.border = null;
+  else
+    screenMode.value.border = {
+      color: "contrast_100",
+      style: "solid",
+      width: [1, 1, 1, 1],
+    };
 };
 
 const aligment = computed<

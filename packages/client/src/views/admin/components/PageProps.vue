@@ -1,8 +1,16 @@
 <template lang="pug">
-.page_props(v-if='PAGE' :class='{ page_props_vertical: SCREEN === "mobile"}')
-  Input(type='number' label='COLS' v-model='GRID.cols' nobtn size='s')
-  Input(type='number' label='ROWS' v-model='GRID.rows' nobtn size='s')
-  Input(icon='gap' type='number' v-model='GRID.gap' nobtn size='s')
+PropBlock(v-if="GRID" title='grid')
+  Input(type='number' icon='cols' v-model='GRID.cols' nobtn size='s')
+  Input(type='number' icon='rows' v-model='GRID.rows' nobtn size='s')
+  Input(type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
+PropBlock(v-if="COLORS" title='colors')
+
+Input(
+  v-for='(value, key) in COLORS'
+  type='color' v-model='COLORS[key]' nobtn
+  size='s'
+  :label='key')
+
   //- Input(type='color' label='BG' v-model='PAGE.background' nobtn size='s')
 
 </template>
@@ -10,7 +18,7 @@
 import { ConfigStoreHelper } from "@/store/modules/config";
 import { ScreenStoreHelper } from "@/store/modules/screen";
 
-const { GRID, PAGE } = ConfigStoreHelper();
+const { GRID, COLORS } = ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 </script>
 <style lang="sass">

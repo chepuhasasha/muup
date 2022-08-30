@@ -18,7 +18,7 @@ export const config: Module<IConfigState, State> = {
     selectedBlock: null,
   },
   getters: {
-    THEME: (state) => state.site?.active_theme,
+    COLORS: (state) => state.site?.colors,
     SITE: (state) => state.site,
     PAGE: (state) => state.page,
     TITLE: (state) => state.page?.title,
@@ -35,24 +35,22 @@ export const config: Module<IConfigState, State> = {
       state.page = page;
       document.title = page.title;
     },
-    SET_THEME(state, name: string) {
-      if (state.site) {
-        state.site.active_theme = name;
-
-        const style = document.getElementById("theme");
-        let result = "";
-        if (state.site.themes[name]) {
-          result = ":root {";
-          Object.keys(state.site.themes[name]).forEach((key) => {
-            result += `  --${key}: ${state.site?.themes[name][key]};`;
-          });
-          result += " }";
-        }
-        if (style) {
-          style.innerText = result;
-        }
-      }
-    },
+    // SET_COLORS(state) {
+    //   if (state.site) {
+    //     const style = document.getElementById("theme");
+    //     let result = "";
+    //     if (state.site.colors) {
+    //       result = ":root {";
+    //       Object.keys(state.site.colors).forEach((key) => {
+    //         result += `  --${key}: ${state.site?.colors[key]};`;
+    //       });
+    //       result += " }";
+    //     }
+    //     if (style) {
+    //       style.innerText = result;
+    //     }
+    //   }
+    // },
     SET_SELECTED_BLOCK(state, block: BlockConfig | null) {
       state.selectedBlock = block;
     },
@@ -63,9 +61,6 @@ export const config: Module<IConfigState, State> = {
     },
     setPage({ commit }, page: PageConfig) {
       commit("SET_PAGE", page);
-    },
-    setTheme({ commit }, name: string) {
-      commit("SET_THEME", name);
     },
     setSelectedBlock({ commit }, block: BlockConfig | null) {
       commit("SET_SELECTED_BLOCK", block);
@@ -79,13 +74,13 @@ export function ConfigStoreHelper() {
     SITE: computed<SiteConfig>(() => STORE.getters.SITE),
     PAGE: computed<PageConfig>(() => STORE.getters.PAGE),
     TITLE: computed<PageConfig["title"]>(() => STORE.getters.TITLE),
+    COLORS: computed<SiteConfig["colors"]>(() => STORE.getters.COLORS),
     GRID: computed<PageConfig["grid"]>(() => STORE.getters.GRID),
     BLOCKS: computed<PageConfig["blocks"]>(() => STORE.getters.BLOCKS),
     IMAGES: computed<PageConfig["images"]>(() => STORE.getters.IMAGES),
     SELECTED: computed<BlockConfig>(() => STORE.getters.SELECTED),
     SET_SITE: (site: SiteConfig) => STORE.dispatch("setSite", site),
     SET_PAGE: (page: PageConfig) => STORE.dispatch("setPage", page),
-    SET_THEME: (name: string) => STORE.dispatch("setTheme", name),
     SET_SELECTED_BLOCK: (block: BlockConfig | null) =>
       STORE.dispatch("setSelectedBlock", block),
   };

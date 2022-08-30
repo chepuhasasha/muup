@@ -17,7 +17,7 @@ export interface ScreenMode {
     width: [number, number, number, number];
     color: string;
     style: string;
-  };
+  } | null;
 }
 export interface BlockConfig {
   tag: string;

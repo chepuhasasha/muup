@@ -46,7 +46,7 @@
             2,
             2
           ],
-          "color": "black",
+          "color": "accent_500",
           "style": "solid"
         }
       },
@@ -85,7 +85,7 @@
             2,
             2
           ],
-          "color": "black",
+          "color": "accent_100",
           "style": "solid"
         }
       },
@@ -124,7 +124,7 @@
             2,
             2
           ],
-          "color": "black",
+          "color": "accent_700",
           "style": "solid"
         }
       },

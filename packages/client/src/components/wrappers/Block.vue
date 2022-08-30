@@ -20,15 +20,17 @@ const props = defineProps({
 });
 
 const style = computed(() => {
+  const result: Record<string, unknown> = {};
   if (props.config) {
-    // const result: Record<string, unknown> = {
-    //   background: props.config.style.background,
-    //   borderColor: props.config.style.borderColor,
-    //   borderStyle: props.config.style.borderStyle,
-    //   borderWidth: props.config.style.borderWidth + "px",
-    // };
-    const result: Record<string, unknown> = {};
     const screen = props.config[SCREEN.value];
+
+    // BORDER
+    if (screen.border) {
+      result.borderColor = `var(--${screen.border.color})`;
+      result.borderStyle = screen.border.style;
+      result.borderWidth = `${screen.border.width[0]}px ${screen.border.width[1]}px ${screen.border.width[2]}px ${screen.border.width[3]}px`;
+    }
+
     result.gridArea = `${screen.grid.area[1]} / ${screen.grid.area[0]} / ${
       +screen.grid.area[1] + +screen.grid.area[3]
     } / ${+screen.grid.area[0] + +screen.grid.area[2]}`;
@@ -36,9 +38,6 @@ const style = computed(() => {
     // result.borderRadius = screen.grid.borderRadius + "px";
     result.padding = `${screen.layout.padding[0]}px ${screen.layout.padding[1]}px ${screen.layout.padding[2]}px ${screen.layout.padding[3]}px`;
     result.flexDirection = screen.layout.direction;
-    result.borderColor = screen.border.color;
-    result.borderStyle = screen.border.style;
-    result.borderWidth = `${screen.border.width[0]}px ${screen.border.width[1]}px ${screen.border.width[2]}px ${screen.border.width[3]}px`;
     // result.borderКшпреWidth = `${screen.border.width[0]}px`
 
     if (screen.layout.direction === "column") {

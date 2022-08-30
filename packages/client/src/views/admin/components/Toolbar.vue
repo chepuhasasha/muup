@@ -12,7 +12,6 @@
   //-   :active='menu.add'
   //-   @click="menu.add = !menu.add"
   //-   icon='plus' title='Add block')
-  PageProps(v-if='!SELECTED').toolbar_block
 
   ToolbarBtn(
     :active='settingsIsOpen'
@@ -35,6 +34,7 @@
     icon='minimize' title='Auto detect screen')
 .toolbar_menu(v-if='settingsIsOpen')
   SelectedBlock(v-if='SELECTED')
+  PageProps(v-if='!SELECTED')
 </template>
 <script lang="ts" setup>
 import { ref } from "vue";

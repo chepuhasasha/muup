@@ -5,9 +5,9 @@ PropBlock(v-if="GRID" title='grid')
   Input(type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
 PropBlock(v-if="COLORS" title='colors')
 
-Input(
+InputColor(
   v-for='(value, key) in COLORS'
-  type='color' v-model='COLORS[key]' nobtn
+  v-model='COLORS[key]'
   size='s'
   :label='key')
 

@@ -43,7 +43,7 @@ const props = defineProps({
   error: { type: String as PropType<string>, default: "" },
   size: { type: String as PropType<"s" | "m" | "l">, default: "m" },
 });
-const emit = defineEmits(["focus", "update:modelValue"]);
+const emit = defineEmits(["focus", "blur", "update:modelValue"]);
 const focus = ref(false);
 const onfocus = (val: boolean) => {
   focus.value = val;

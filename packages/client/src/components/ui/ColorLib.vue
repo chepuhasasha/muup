@@ -1,11 +1,10 @@
 <template lang="pug">
-.color
-  .color_color(:style='{ background: `var(--${modelValue})` }')
-  Input(v-model='modelValue' @focus="isOpen = true" nobtn size='s')
-  .color_pop(v-if='isOpen')
-    .color_pop_item(v-for='(value, key) in COLORS' @click="select(key)" :class='{color_pop_item_active: key === modelValue}')
-      .color_color(:style='{ background: value }')
-      .color_value {{ key }}
+.colorlib(tabindex="0" @focus="isOpen = true" @blur="isOpen = false" ref='container')
+  .colorlib_color(:style='{ background: `var(--${modelValue})` }')
+  Input(v-model='modelValue'  nobtn size='s')
+  .colorlib_pop(v-if='isOpen')
+    Color(v-for='(value, key) in COLORS' @click="select(key)" :color='value' :name='key')
+
 </template>
 
 <script lang="ts" setup>
@@ -13,6 +12,7 @@ import { PropType, ref } from "vue";
 import { ConfigStoreHelper } from "../../store/modules/config";
 
 const isOpen = ref<boolean>(false);
+const container = ref<HTMLElement | null>(null);
 const emit = defineEmits(["update:modelValue"]);
 const props = defineProps({
   modelValue: { type: String as PropType<string | null>, default: null },
@@ -21,12 +21,14 @@ const select = (key?: string) => {
   if (key) emit("update:modelValue", key);
   else emit("update:modelValue", null);
   isOpen.value = false;
+  if (container.value) container.value.blur();
 };
 
 const { COLORS } = ConfigStoreHelper();
 </script>
 <style lang="sass">
-.color
+.colorlib
+  cursor: pointer
   display: flex
   gap: 10px
   align-items: center
@@ -56,7 +58,7 @@ const { COLORS } = ConfigStoreHelper();
     position: absolute
     top: 100%
     width: 100%
-    margin-top: 5px
+    margin-top: 10px
     max-height: 300px
     overflow-y: auto
     &_item

@@ -6,7 +6,15 @@
     height: 4px
     // FIXME
     background: var(--scroll)
-  
+
   &::-webkit-scrollbar-thumb
     // FIXME
     background: var(--scroll_thumb)
+
+input[type="number"]
+  &::-webkit-outer-spin-button, &::-webkit-inner-spin-button
+    -webkit-appearance: none
+    margin: none
+    -moz-appearance: textfield
+  &:hover, &:focus
+    -moz-appearance: number-input

@@ -35,7 +35,7 @@ PropBlock(title='border')
     v-justify-self="'end'"
     :icon='screenMode.border ? "solid" : "plus"'
     pointer @click="setBorder()")
-  Color(
+  ColorLib(
     v-if='screenMode.border'
     v-area="'2/1/3/4'"
     v-model='screenMode.border.color')

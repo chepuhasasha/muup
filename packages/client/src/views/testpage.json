@@ -58,7 +58,7 @@
           "borderRadius": 20
         },
         "layout": {
-          "direction": "column",
+          "direction": "row",
           "padding": [
             20,
             20,
@@ -67,8 +67,8 @@
           ],
           "gap": null,
           "aligment": [
-            "start",
-            "start"
+            "center",
+            "center"
           ]
         },
         "border": {
@@ -162,7 +162,7 @@
             20,
             20
           ],
-          "gap": "80",
+          "gap": null,
           "aligment": [
             "start",
             "start"
@@ -314,7 +314,7 @@
           "borderRadius": 20
         },
         "layout": {
-          "direction": "column",
+          "direction": "row",
           "padding": [
             20,
             20,
@@ -323,8 +323,8 @@
           ],
           "gap": null,
           "aligment": [
-            "start",
-            "start"
+            "center",
+            "center"
           ]
         },
         "border": {

@@ -1,6 +1,6 @@
 <template lang="pug">
 //- GRID
-PropBlock(title='grid')
+PropBlock(title='grid' :flex='false')
   template(v-slot:header)
     Input(v-w="'58px'" icon="layout" type='number' v-model='screenMode.grid.area[4]' nobtn size='s')
   Input(v-area="'1/1/2/2'" label='X' type='number' v-model='screenMode.grid.area[0]' nobtn size='s')
@@ -8,7 +8,7 @@ PropBlock(title='grid')
   Input(v-area="'1/3/2/4'" label='W' type='number' v-model='screenMode.grid.area[2]' nobtn size='s')
   Input(v-area="'1/4/2/5'" label='H' type='number' v-model='screenMode.grid.area[3]' nobtn size='s')
 //- LAYOUT
-PropBlock(title='layout')
+PropBlock(title='layout' :flex='false')
   .prop_block_row(v-area="'1/1/2/2'")
     Button(@click='screenMode.layout.direction = "row"' size='s' icon='right' :active='screenMode.layout.direction === "row"')
     Button(@click='screenMode.layout.direction = "column"' size='s' icon='down' :active='screenMode.layout.direction === "column"')
@@ -85,10 +85,11 @@ PropBlock(title='border' :grid='screenMode.border ? true : false')
     Button(v-area="'3/1/4/5'" v-w="'100%'" size='s') apply to all screens
   
 //- FIGMA
-PropBlock(title='Figma')
-  Input(v-area="'1/1/2/5'" v-model='screenMode.node' label='Key' size='s')
-  Input(v-area="'2/1/3/5'" v-model='screenMode.node' label='Node ID' size='s')
-  Button(v-area="'3/1/4/5'" size='s') Sync
+PropBlock(title='Figma' :grid='false')
+  template(v-slot:flex)
+    Input(v-model='screenMode.node' label='Key' size='s')
+    Input(v-model='screenMode.node' label='Node ID' size='s')
+    Button(v-w='"100%"' size='s') Sync
 
 </template>
 <script lang="ts" setup>

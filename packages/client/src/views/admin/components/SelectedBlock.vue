@@ -1,7 +1,8 @@
 <template lang="pug">
 //- GRID
 PropBlock(title='grid')
-  Input(v-area="'1/4/2/5'" icon="layout" type='number' v-model='screenMode.grid.area[4]' nobtn size='s')
+  template(v-slot:header)
+    Input(v-w="'58px'" icon="layout" type='number' v-model='screenMode.grid.area[4]' nobtn size='s')
   Input(v-area="'2/1/3/2'" label='X' type='number' v-model='screenMode.grid.area[0]' nobtn size='s')
   Input(v-area="'2/2/3/3'" label='Y' type='number' v-model='screenMode.grid.area[1]' nobtn size='s')
   Input(v-area="'2/3/3/4'" label='W' type='number' v-model='screenMode.grid.area[2]' nobtn size='s')
@@ -30,11 +31,10 @@ PropBlock(title='layout')
   Button(v-area="'6/1/7/5'" v-w="'100%'" size='s') apply to all screens
 //- BORDER
 PropBlock(title='border')
-  Icon(
-    v-area="'1/4/2/5'"
-    v-justify-self="'end'"
-    :icon='screenMode.border ? "solid" : "plus"'
-    pointer @click="setBorder()")
+  template(v-slot:header)
+    Icon(
+      :icon='screenMode.border ? "solid" : "plus"'
+      pointer @click="setBorder()")
   ColorLib(
     v-if='screenMode.border'
     v-area="'2/1/3/4'"

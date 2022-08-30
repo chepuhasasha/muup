@@ -4,12 +4,12 @@ PropBlock(v-if="GRID" title='grid')
   Input(type='number' icon='rows' v-model='GRID.rows' nobtn size='s')
   Input(type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
 PropBlock(v-if="COLORS" title='colors')
-
-InputColor(
-  v-for='(value, key) in COLORS'
-  v-model='COLORS[key]'
-  size='s'
-  :label='key')
+  template(v-slot:flex)
+    InputColor(
+      v-for='(value, key) in COLORS'
+      v-model='COLORS[key]'
+      size='s'
+      :label='key')
 
   //- Input(type='color' label='BG' v-model='PAGE.background' nobtn size='s')
 

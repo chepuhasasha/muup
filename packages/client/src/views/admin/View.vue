@@ -19,7 +19,7 @@ const route = useRoute();
 const pageName = ref<string | string[]>();
 const { SET_PAGE, BLOCKS, GRID, TITLE, PAGE, SELECTED, SET_SELECTED_BLOCK } =
   ConfigStoreHelper();
-const { SCREEN } = ScreenStoreHelper();
+const { SCREEN, W } = ScreenStoreHelper();
 const { USER } = UserStoreHelper();
 
 onMounted(() => {
@@ -29,11 +29,12 @@ onMounted(() => {
 
 const getPageStyle = computed(() => {
   if (GRID.value) {
+    const tile =
+      (W.value - GRID.value.gap * (GRID.value.cols - 1)) / GRID.value.cols;
     return {
-      gridTemplateRows: `repeat(${GRID.value.rows}, ${100 / GRID.value.rows}%)`,
-      gridTemplateColumns: `repeat(${GRID.value.cols}, ${
-        100 / GRID.value.cols
-      }%)`,
+      width: W.value + "px",
+      gridTemplateRows: `repeat(${GRID.value.rows}, 40px)`,
+      gridTemplateColumns: `repeat(${GRID.value.cols}, ${tile}px)`,
       gap: `${GRID.value.gap}px`,
       background: `var(--${PAGE.value.background})`,
     };
@@ -48,12 +49,16 @@ const getPageStyle = computed(() => {
   max-width: 100%
   max-height: 100%
   overflow-y: auto
+  background: #1E1F29
+  display: flex
+  // align-items: center
+  justify-content: center
 .page
   display: grid
-  width: 100%
-  max-width: 100%
+  // width: 100%
+  // max-width: 100%
   min-height: 100%
-  overflow: hidden
+  overflow-x: hidden
 .editor
   position: absolute
   display: flex

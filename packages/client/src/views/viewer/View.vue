@@ -19,11 +19,12 @@ onMounted(() => {
 
 const getPageStyle = computed(() => {
   if (GRID.value) {
+    const tile =
+      (window.innerWidth - GRID.value.gap * (GRID.value.cols - 1)) /
+      GRID.value.cols;
     return {
       gridTemplateRows: `repeat(${GRID.value.rows}, ${100 / GRID.value.rows}%)`,
-      gridTemplateColumns: `repeat(${GRID.value.cols}, ${
-        100 / GRID.value.cols
-      }%)`,
+      gridTemplateColumns: `repeat(${GRID.value.cols}, ${tile}px)`,
       gap: `${GRID.value.gap}px`,
       background: PAGE.value.background,
     };

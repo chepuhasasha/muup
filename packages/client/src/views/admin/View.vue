@@ -35,7 +35,7 @@ const getPageStyle = computed(() => {
         100 / GRID.value.cols
       }%)`,
       gap: `${GRID.value.gap}px`,
-      background: PAGE.value.background,
+      background: `var(--${PAGE.value.background})`,
     };
   }
   return {};

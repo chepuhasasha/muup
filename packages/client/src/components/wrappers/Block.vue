@@ -30,6 +30,9 @@ const style = computed(() => {
       result.borderStyle = screen.border.style;
       result.borderWidth = `${screen.border.width[0]}px ${screen.border.width[1]}px ${screen.border.width[2]}px ${screen.border.width[3]}px`;
     }
+    if (screen.bg) {
+      result.background = `var(--${screen.bg})`;
+    }
 
     result.gridArea = `${screen.grid.area[1]} / ${screen.grid.area[0]} / ${
       +screen.grid.area[1] + +screen.grid.area[3]

@@ -3,6 +3,7 @@ import { WidgetConfig } from "./widgetConfig";
 export interface ScreenMode {
   node: string;
   classes: string[];
+  bg: string | null;
   grid: {
     area: [number, number, number, number, number];
     borderRadius: number;

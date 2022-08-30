@@ -1,8 +1,12 @@
 <template lang="pug">
 PropBlock(v-if="GRID" title='grid')
-  Input(type='number' icon='cols' v-model='GRID.cols' nobtn size='s')
-  Input(type='number' icon='rows' v-model='GRID.rows' nobtn size='s')
-  Input(type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
+  Input(v-area="'1/1/2/3'" type='number' icon='cols' v-model='GRID.cols' nobtn size='s')
+  Input(v-area="'1/3/2/5'" type='number' icon='rows' v-model='GRID.rows' nobtn size='s')
+  ColorLib(
+    v-if='PAGE'
+    v-area="'2/1/3/3'"
+    v-model='PAGE.background')
+  Input(v-area="'2/3/3/5'" type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
 PropBlock(v-if="COLORS" title='colors')
   template(v-slot:flex)
     InputColor(
@@ -18,7 +22,7 @@ PropBlock(v-if="COLORS" title='colors')
 import { ConfigStoreHelper } from "@/store/modules/config";
 import { ScreenStoreHelper } from "@/store/modules/screen";
 
-const { GRID, COLORS } = ConfigStoreHelper();
+const { GRID, COLORS, PAGE } = ConfigStoreHelper();
 const { SCREEN } = ScreenStoreHelper();
 </script>
 <style lang="sass">

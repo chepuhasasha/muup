@@ -2,7 +2,7 @@
   "path": "test",
   "title": "Test Page",
   "tag": "section",
-  "background": "#ff0000",
+  "background": "contrast_400",
   "grid": {
     "rows": 20,
     "cols": 20,
@@ -12,6 +12,7 @@
     {
       "tag": "div",
       "decktop": {
+        "bg": "contrast_200",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -51,6 +52,7 @@
         }
       },
       "tablet": {
+        "bg": "contrast_200",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -90,6 +92,7 @@
         }
       },
       "mobile": {
+        "bg": "contrast_200",
         "node": "nodeId",
         "classes": [],
         "grid": {

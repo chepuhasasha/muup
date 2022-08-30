@@ -7,7 +7,7 @@ PropBlock(v-if="GRID" title='grid')
     v-area="'2/1/3/3'"
     v-model='PAGE.background')
   Input(v-area="'2/3/3/5'" type='number' icon='gap' v-model='GRID.gap' nobtn size='s')
-PropBlock(v-if="COLORS" title='colors')
+PropBlock(v-if="COLORS" title='colors' :grid='false')
   template(v-slot:header)
     Icon(
       icon="plus"

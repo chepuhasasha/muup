@@ -8,6 +8,7 @@ import PropBlockVue from "./wrappers/PropBlock.vue";
 import ColorVue from "./widgets/Color.vue";
 import ColorLibVue from "./ui/ColorLib.vue";
 import InputColorVue from "./ui/InputColor.vue";
+import ViewerVue from "./wrappers/Viewer.vue";
 
 export default {
   install(Vue: App): void {
@@ -20,5 +21,6 @@ export default {
     Vue.component("ColorLib", ColorLibVue);
     Vue.component("Block", BlockVue);
     Vue.component("PropBlock", PropBlockVue);
+    Vue.component("Viewer", ViewerVue);
   },
 };

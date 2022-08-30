@@ -57,7 +57,7 @@ const drawMask = (delta: number) => {
     if (s.type === "rect") mask.drawRect(s.x, s.y, s.w, s.h);
     if (s.type === "ellipse") mask.drawEllipse(s.x, s.y, s.w, s.h);
   });
-  mask.rotation += delta * 0.01;
+  mask.rotation += delta * 0.02;
 };
 
 app.ticker.add((delta) => {

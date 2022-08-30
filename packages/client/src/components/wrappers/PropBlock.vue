@@ -2,9 +2,9 @@
 .prop_block(@keydown.stop)
   .prop_block_title(v-if='title') {{ title }}
     slot(name='header')
-  .prop_block_grid(v-if='SLOTS.default')
+  .prop_block_grid(v-if='grid')
     slot
-  .prop_block_flex(v-if='SLOTS.flex')
+  .prop_block_flex(v-if='flex')
     slot(name='flex')
 </template>
 <script lang="ts" setup>
@@ -14,15 +14,12 @@ import { BlockConfig } from "@/types/blockConfig";
 import { ScreenStoreHelper } from "@/store/modules/screen";
 import { ConfigStoreHelper } from "@/store/modules/config";
 
-const slots = useSlots();
-const SLOTS = computed(() => ({
-  default: slots.default ? true : false,
-  flex: slots.flex ? true : false,
-}));
 const { SCREEN } = ScreenStoreHelper();
 const { SET_SELECTED_BLOCK, SELECTED } = ConfigStoreHelper();
 const props = defineProps({
   title: { type: String as PropType<string> },
+  grid: { type: Boolean as PropType<boolean>, default: true },
+  flex: { type: Boolean as PropType<boolean>, default: true },
 });
 </script>
 
@@ -38,7 +35,7 @@ const props = defineProps({
   .prop_block_grid
     display: grid
     grid-template-columns: 1fr 1fr 1fr 1fr
-    grid-template-rows: repeat(2, max-content)
+    // grid-template-rows: repeat(2, max-content)
     gap: 10px
     align-items: center
   .prop_block_flex

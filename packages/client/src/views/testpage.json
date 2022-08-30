@@ -12,7 +12,7 @@
     {
       "tag": "div",
       "decktop": {
-        "bg": "contrast_200",
+        "bg": "contrast_500",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -140,7 +140,7 @@
     {
       "tag": "div",
       "decktop": {
-        "bg": "contrast_200",
+        "bg": "accent_500",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -268,7 +268,7 @@
     {
       "tag": "div",
       "decktop": {
-        "bg": "contrast_200",
+        "bg": "accent_200",
         "node": "nodeId",
         "classes": [],
         "grid": {

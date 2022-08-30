@@ -30,7 +30,7 @@ PropBlock(title='layout')
   Input(v-area="'4/1/5/2'" type='number' icon='align_left' v-model='screenMode.layout.padding[3]' nobtn size='s')
   Button(v-area="'5/1/6/5'" v-w="'100%'" size='s') apply to all screens
 //- BG
-PropBlock(title='background')
+PropBlock(title='background' :grid='screenMode.bg ? true : false')
   template(v-slot:header)
     Icon(
       :icon='screenMode.bg ? "solid" : "plus"'
@@ -41,7 +41,7 @@ PropBlock(title='background')
       v-model='screenMode.bg')
     Button(v-w="'100%'" size='s') apply to all screens
 //- BORDER
-PropBlock(title='border')
+PropBlock(title='border' :grid='screenMode.border ? true : false')
   template(v-slot:header)
     Icon(
       :icon='screenMode.border ? "solid" : "plus"'
@@ -120,6 +120,8 @@ const setBG = () => {
   if (screenMode.value.bg) screenMode.value.bg = null;
   else screenMode.value.bg = "contrast_100";
 };
+
+// const applyToAll = (name: 'border' | 'bg' | 'layout', )
 
 const aligment = computed<
   { p: [string, string]; active: boolean; area: string }[]

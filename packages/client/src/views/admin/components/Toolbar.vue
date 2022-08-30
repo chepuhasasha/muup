@@ -48,7 +48,7 @@ import { ScreenStoreHelper } from "../../../store/modules/screen";
 const { PAGE, BLOCKS, SELECTED, SET_SELECTED_BLOCK } = ConfigStoreHelper();
 const { SCREEN, SET_SCREEN } = ScreenStoreHelper();
 
-const settingsIsOpen = ref(true);
+const settingsIsOpen = ref(false);
 
 const showedMenu = ref<string | null>(null);
 const selectMenu = (name: string) => {

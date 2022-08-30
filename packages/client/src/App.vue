@@ -41,4 +41,6 @@ onMounted(() => {
 
   display: flex
   flex-direction: column
+  align-items: center
+  background: #1E1F29
 </style>

@@ -28,6 +28,7 @@ const getPageStyle = computed(() => {
 <style lang="sass">
 .page
   display: grid
-  overflow-x: hidden
+  overflow-x: auto
+  max-width: 100vw
   overflow-y: auto
 </style>

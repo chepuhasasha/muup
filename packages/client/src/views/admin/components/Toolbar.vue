@@ -12,7 +12,6 @@
   //-   :active='menu.add'
   //-   @click="menu.add = !menu.add"
   //-   icon='plus' title='Add block')
-
   ToolbarBtn(
     :active='settingsIsOpen'
     @click="settingsIsOpen = !settingsIsOpen"
@@ -156,6 +155,8 @@ document.addEventListener("keydown", keydown);
   padding-bottom: 2px
   width: 100%
   min-height: 50px
+  max-width: 100%
+  overflow-x: auto
 
   &_menu
     display: flex

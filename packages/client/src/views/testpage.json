@@ -12,14 +12,14 @@
     {
       "tag": "div",
       "decktop": {
-        "bg": "contrast_500",
+        "bg": "accent_100",
         "node": "nodeId",
         "classes": [],
         "grid": {
           "area": [
             1,
             1,
-            10,
+            "4",
             10,
             1
           ],
@@ -27,14 +27,14 @@
           "borderRadius": 20
         },
         "layout": {
-          "direction": "row",
+          "direction": "column",
           "padding": [
             20,
             20,
             20,
             20
           ],
-          "gap": "80",
+          "gap": "20",
           "aligment": [
             "start",
             "start"
@@ -43,7 +43,7 @@
         "border": null
       },
       "tablet": {
-        "bg": "contrast_200",
+        "bg": "accent_500",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -51,7 +51,7 @@
             1,
             1,
             10,
-            10,
+            "6",
             1
           ],
           "zIndex": 0,
@@ -71,19 +71,10 @@
             "center"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_100",
-          "style": "solid"
-        }
+        "border": null
       },
       "mobile": {
-        "bg": "contrast_200",
+        "bg": "accent_600",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -91,7 +82,7 @@
             1,
             1,
             "20",
-            "14",
+            "7",
             1
           ],
           "zIndex": 0,
@@ -111,22 +102,14 @@
             "start"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_700",
-          "style": "solid"
-        }
+        "border": null
       },
       "widgets": [
         {
-          "type": "Mask",
+          "type": "Header",
           "props": {
-            "img": "test"
+            "tag": "H1",
+            "text": "Header #1"
           }
         },
         {
@@ -171,7 +154,7 @@
         "border": null
       },
       "tablet": {
-        "bg": "contrast_200",
+        "bg": "contrast_500",
         "node": "nodeId",
         "classes": [],
         "grid": {
@@ -199,25 +182,16 @@
             "start"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_100",
-          "style": "solid"
-        }
+        "border": null
       },
       "mobile": {
-        "bg": "contrast_200",
+        "bg": "accent_500",
         "node": "nodeId",
         "classes": [],
         "grid": {
           "area": [
             1,
-            15,
+            "8",
             "20",
             "14",
             1
@@ -239,16 +213,7 @@
             "start"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_700",
-          "style": "solid"
-        }
+        "border": null
       },
       "widgets": [
         {
@@ -273,9 +238,9 @@
         "classes": [],
         "grid": {
           "area": [
-            11,
-            1,
-            10,
+            "5",
+            "1",
+            "16",
             10,
             1
           ],
@@ -283,31 +248,31 @@
           "borderRadius": 20
         },
         "layout": {
-          "direction": "row",
+          "direction": "column",
           "padding": [
             20,
             20,
             20,
             20
           ],
-          "gap": "80",
+          "gap": "10",
           "aligment": [
-            "start",
+            "center",
             "start"
           ]
         },
         "border": null
       },
       "tablet": {
-        "bg": "contrast_200",
+        "bg": "accent_100",
         "node": "nodeId",
         "classes": [],
         "grid": {
           "area": [
             1,
-            11,
+            "7",
             10,
-            10,
+            "14",
             1
           ],
           "zIndex": 0,
@@ -327,16 +292,7 @@
             "center"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_100",
-          "style": "solid"
-        }
+        "border": null
       },
       "mobile": {
         "bg": "contrast_200",
@@ -345,7 +301,7 @@
         "grid": {
           "area": [
             1,
-            29,
+            "22",
             "20",
             "12",
             1
@@ -367,16 +323,7 @@
             "start"
           ]
         },
-        "border": {
-          "width": [
-            2,
-            2,
-            2,
-            2
-          ],
-          "color": "accent_700",
-          "style": "solid"
-        }
+        "border": null
       },
       "widgets": [
         {

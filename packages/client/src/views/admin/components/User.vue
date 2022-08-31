@@ -12,6 +12,7 @@ const { USER } = UserStoreHelper();
 </script>
 <style lang="sass">
 .user
+  min-width: max-content
   &_avatar
     border-radius: 100%
   &_info

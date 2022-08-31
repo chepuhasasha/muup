@@ -20,6 +20,7 @@
   "homepage": "https://github.com/chepuhasasha/qtb#readme",
   "workspaces": [
     "packages\\client",
-    "packages\\muup"
+    "packages\\muup",
+    "packages\\front"
   ]
 }

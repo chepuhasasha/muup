@@ -1,6 +1,6 @@
 import type { App } from "vue";
 import { createPinia } from "pinia";
-import TestVue from "@/components/Test.vue";
+import TestVue from "./src/components/Test.vue";
 
 export default {
   install(Vue: App) {

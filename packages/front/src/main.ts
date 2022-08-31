@@ -5,6 +5,11 @@ import router from "./router";
 
 // import "./assets/main.css";
 import editor from "muup";
+import { widgetsList, widgets } from "./components";
 
-createApp(App).use(editor).use(router).mount(document.body);
+createApp(App)
+  .use(editor, widgetsList)
+  .use(widgets)
+  .use(router)
+  .mount(document.body);
 

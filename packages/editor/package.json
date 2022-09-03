@@ -1,5 +1,5 @@
 {
-  "name": "muup",
+  "name": "@muup/editor",
   "version": "0.0.1",
   "scripts": {
     "dev": "vite",
@@ -35,12 +35,13 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chepuhasasha/qtb.git"
+    "url": "git+https://github.com/chepuhasasha/muup.git",
+    "directory": "/packages/editor"
   },
   "author": "Sergey Batukov",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/chepuhasasha/qtb/issues"
+    "url": "https://github.com/chepuhasasha/muup/issues"
   },
-  "homepage": "https://github.com/chepuhasasha/qtb#readme"
+  "homepage": "https://github.com/chepuhasasha/muup#readme"
 }

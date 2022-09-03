@@ -1,12 +1,12 @@
 {
-  "name": "qtb",
+  "name": "muup",
   "version": "0.0.1",
   "scripts": {
     "dev": "npm run dev --workspace=client"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chepuhasasha/qtb.git"
+    "url": "git+https://github.com/chepuhasasha/muup.git"
   },
   "keywords": [],
   "author": {
@@ -15,10 +15,10 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/chepuhasasha/qtb/issues"
+    "url": "https://github.com/chepuhasasha/muup/issues"
   },
-  "homepage": "https://github.com/chepuhasasha/qtb#readme",
+  "homepage": "https://github.com/chepuhasasha/muup#readme",
   "workspaces": [
-    "packages\\muup"
+    "packages\\editor"
   ]
 }

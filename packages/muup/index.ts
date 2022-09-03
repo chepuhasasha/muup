@@ -1,12 +1,18 @@
 import type { App } from "vue";
 import { createPinia } from "pinia";
-import TestVue from "./src/components/Test.vue";
+import UserVue from "./src/components/User.vue";
+import ToolbarVue from "./src/components/Toolbar.vue";
+export interface MuupOptions {
+  host: string;
+  widgets: string[];
+}
 
 export default {
-  install(Vue: App, widgets: string[]) {
+  install(Vue: App, options: MuupOptions) {
     Vue.use(createPinia());
-    console.log(widgets);
-    Vue.component("Test", TestVue);
+    console.log(options);
+    Vue.component("MuupUser", UserVue);
+    Vue.component("MuupToolbar", ToolbarVue);
   },
 };
 

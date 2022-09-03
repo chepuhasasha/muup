@@ -1,12 +1,13 @@
 <template lang="pug">
 #app
-  h1 EDITOR
-  Test
+  MuupToolbar
 </template>
 
 <script setup lang="ts"></script>
 
 <style lang="sass">
-// #app
+*
+  margin: 0
+#app
 </style>
 

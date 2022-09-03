@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/chepuhasasha/muup#readme",
   "workspaces": [
-    "packages\\editor"
+    "packages\\editor",
+    "packages\\example"
   ]
 }

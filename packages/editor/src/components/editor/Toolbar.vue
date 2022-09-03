@@ -5,7 +5,7 @@
 
 <script setup lang="ts">
 import { onMounted } from "vue-demi";
-import { useUserStore } from "../stores/user";
+import { useUserStore } from "../../stores/user";
 const { user, setUser } = useUserStore();
 
 onMounted(() => {

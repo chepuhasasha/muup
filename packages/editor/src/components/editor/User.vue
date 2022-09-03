@@ -7,7 +7,7 @@
 </template>
 <script lang="ts" setup>
 import { storeToRefs } from "pinia";
-import { useUserStore } from "../stores/user";
+import { useUserStore } from "../../stores/user";
 
 const { user } = storeToRefs(useUserStore());
 </script>
@@ -31,4 +31,3 @@ const { user } = storeToRefs(useUserStore());
     color: rgba(255,255,255, 0.4)
     font-size: 10px
 </style>
-

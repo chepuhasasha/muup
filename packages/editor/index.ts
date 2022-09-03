@@ -1,7 +1,7 @@
 import type { App } from "vue";
 import { createPinia } from "pinia";
-import UserVue from "./src/components/User.vue";
-import ToolbarVue from "./src/components/Toolbar.vue";
+import UserVue from "./src/components/editor/User.vue";
+import ToolbarVue from "./src/components/editor/Toolbar.vue";
 export interface MuupOptions {
   host: string;
   widgets: string[];
@@ -15,4 +15,3 @@ export default {
     Vue.component("MuupToolbar", ToolbarVue);
   },
 };
-

@@ -9,6 +9,10 @@ export interface MuupOptions {
 
 export default {
   install(Vue: App, options: MuupOptions) {
+    const s = document.createElement("style");
+    s.id = "colors";
+    document.head.appendChild(s);
+
     Vue.use(createPinia());
     console.log(options);
     Vue.component("MuupUser", UserVue);

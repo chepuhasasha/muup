@@ -6,7 +6,6 @@ button.button(:class="mode")
 </template>
 
 <script lang="ts" setup>
-// TODO: Небходим ревакторинг, и кое какие доделки
 import { computed } from "vue";
 import type { IconName } from "@/common/widgets/icons";
 

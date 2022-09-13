@@ -1,7 +1,6 @@
 ![muup](./assets/muup.svg)
 
-# MUUP
-
+---
 ## Начало работы
 
 Для начала инициализируйте [Nuxt 3](https://v3.nuxtjs.org/getting-started/quick-start), после установите `MUUP`.

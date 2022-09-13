@@ -1,0 +1,38 @@
+{
+  "name": "HOME",
+  "main": {
+    "tag": "div",
+    "classes": [
+      "test",
+      "test_2"
+    ],
+    "css": {
+      "display": "flex",
+      "justifyContent": "center",
+      "alignItems": "center",
+      "width": "100%",
+      "height": "100%"
+    },
+    "childs": [
+      {
+        "tag": "h1",
+        "classes": [
+          "test",
+          "test_2"
+        ],
+        "css": {
+          "fontFamily": "var(--muup_font_200)",
+          "fontSize": "40px",
+          "color": "white"
+        },
+        "childs": [
+          {
+            "tag": "#text",
+            "text": "error..."
+          }
+        ],
+        "props": {}
+      }
+    ]
+  }
+}

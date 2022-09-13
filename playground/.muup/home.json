@@ -1,0 +1,75 @@
+{
+  "name": "HOME",
+  "main": {
+    "tag": "div",
+    "classes": [
+      "test",
+      "test_2"
+    ],
+    "css": {
+      "background": "#ffffff",
+      "padding": "20px",
+      "width": "600px",
+      "height": "500px"
+    },
+    "childs": [
+      {
+        "tag": "test",
+        "classes": [
+          "test",
+          "test_2"
+        ],
+        "css": {
+          "color": "#000000"
+        },
+        "childs": [],
+        "props": {
+          "text": "tesx"
+        }
+      },
+      {
+        "tag": "p",
+        "classes": [
+          "test",
+          "test_2"
+        ],
+        "css": {},
+        "props": {},
+        "childs": [
+          {
+            "tag": "#text",
+            "text": "test1"
+          },
+          {
+            "tag": "b",
+            "classes": [],
+            "css": {
+              "color": "#FF0000"
+            },
+            "childs": [
+              {
+                "tag": "#text",
+                "text": "bold"
+              }
+            ],
+            "props": {}
+          },
+          {
+            "tag": "b",
+            "classes": [],
+            "css": {
+              "color": "#FF0000"
+            },
+            "childs": [
+              {
+                "tag": "#text",
+                "text": "bold"
+              }
+            ],
+            "props": {}
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,3 +1,5 @@
+![muup](./assets/muup.svg)
+
 # MUUP
 
 ## Начало работы
@@ -21,6 +23,7 @@ export default defineNuxtConfig({
   },
 });
 ```
+---
 
 ## Разработка
 

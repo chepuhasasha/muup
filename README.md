@@ -1,4 +1,4 @@
-![muup](./assets/muup.svg)
+![muup](https://raw.githubusercontent.com/chepuhasasha/muup/main/assets/muup.svg)
 
 ---
 ## Начало работы

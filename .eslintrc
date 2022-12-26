@@ -1,7 +1,0 @@
-{
-  "extends": ["@nuxtjs/typescript", "prettier"],
-  "rules": {
-    "@typescript-eslint/no-unused-vars": ["off"]
-  }
-}
-

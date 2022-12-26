@@ -1,0 +1,40 @@
+:root
+  --light-100: #ffffff
+  --light-200: #C9D1D9
+  --light-300: #8B949E
+
+  --dark-100: #11121B
+  --dark-200: #171822
+  --dark-300: #1E1F29
+
+  --accent-100: #4C94FF
+  --accent-200: #4c94ff4f
+
+  --ok-100: #33FF00
+  --warn-100: #FFFF00
+  --error-100: #ff3300
+
+// LIGHT THEME
+:root
+  --color-background-100: var(--light-100)
+  --color-background-200: var(--light-200)
+  --color-background-300: var(--light-300)
+
+  --color-border: var(--dark-300)
+
+  --color-text-100: var(--dark-100)
+  --color-text-200: var(--dark-200)
+  --color-text-300: var(--dark-300)
+
+// DARK THEME
+@media (prefers-color-scheme: dark)
+  :root
+    --color-background-100: var(--dark-100)
+    --color-background-200: var(--dark-200)
+    --color-background-300: var(--dark-300)
+
+    --color-border: var(--light-300)
+
+    --color-text-100: var(--light-100)
+    --color-text-200: var(--light-200)
+    --color-text-300: var(--light-300)

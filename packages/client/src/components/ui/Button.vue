@@ -25,6 +25,7 @@ const classes = computed(() => [
 <style lang="sass">
 .button
   transition: all 0.3s ease
+  font-weight: 500
   cursor: pointer
   display: flex
   border: none
@@ -109,9 +110,11 @@ const classes = computed(() => [
     &__m
       font-size: 14px
       padding: 8px 12px
+      border-radius: 10px
     &__l
       font-size: 16px
       padding: 12px 20px
+      border-radius: 10px
     &:hover, &:focus-visible, &__accent
       border-color: var(--accent-200)
 </style>

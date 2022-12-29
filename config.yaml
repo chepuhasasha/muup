@@ -1,0 +1,51 @@
+element:
+  nodes:
+    - type: "MIDDLEWARE"
+      component: "STRING_DATA"
+      area: "1/1/2/2"
+      out:
+        id: "out_#1"
+        type: "STRING"
+      props:
+        value: "CPU"
+
+    - type: "MIDDLEWARE"
+      component: "NUMBER_DATA"
+      area: "1/1/2/2"
+      out:
+        id: "out_#2"
+        type: "NUMBER"
+      props:
+        value: 80
+
+    - type: "MIDDLEWARE"
+      component: "NUMBER_DATA"
+      area: "1/1/2/2"
+      out:
+        id: "out_#3"
+        type: "NUMBER"
+      props:
+        value: 90
+
+    - type: "MIDDLEWARE"
+      component: "QUERY"
+      area: "1/1/2/2"
+      out:
+        id: "out_#4"
+        type: "NUMBER"
+      props:
+        value: 90
+
+  layout:
+    - type: "WIDGET"
+      component: "UTILIZATION"
+      in:
+        label:
+          type: "STRING"
+          out_id: "out_#1"
+        warning:
+          type: "NUMBER"
+          out_id: "out_#2"
+        critical:
+          type: "NUMBER"
+          out_id: "out_#3"
